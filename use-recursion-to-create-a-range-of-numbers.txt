@@ -1,0 +1,11 @@
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum > endNum){
+    return [];
+  }
+  else{
+    const arrEy = rangeOfNumbers(startNum +1, endNum);
+    arrEy.unshift(startNum);
+    console.log(arrEy);
+    return arrEy;
+  }
+};

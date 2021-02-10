@@ -1,0 +1,82 @@
+Regular expresion (trabajo linux):
+
+	Encontrar coincidencias que una o más veces:
+	para esto se usa el signo + de junto al caracterer que se quiere encontrar se puede usar igual
+	que los otros caracteres especiales y las banderas para mejorar la busqueda como en el ejemplo
+	Ejemplo:
+	let myRegex = /s+/g; busca todas las s en una string
+
+	Encontrar coincidencias que suceden  cero o más veces:
+	Cabe señalar que es diferencia al signo especial +, en este caso el signo * busca coincidenicas
+	parciales, esto puede ser que la coincidencia no se cumpla por completo pero se encuentren 
+	resultados parciales o parecidos a los que se quiere encontrar, en este caso se tiene que
+	para tener un resultado se tiene que cumplir que se encuetra el primer caracter que se define
+	no hay necesidad de banderas dado que se busca un resultado de tipo strick
+	Ejemplo:
+	let chewieRegex = /Aa*/; // va buscar un string que empiece con una A mayuscula y este acompañado
+				 // por una a minuscula
+
+
+	Encontrar caracteres con coincidencia tipo Lazy:
+	Hay dos tipos de busqueda uno es "greedy", este tipo busca el resultado con más caracteres
+	por otro lado está el tipo "lazy" que busca el string más pequeño posible, un ejemplo es el 
+	regex /t[a-z]*i/ este regex busca una cadena que empiece con t y termine en i, con n cantidad
+	de letras del abecedario, en medio si usamos la string "titanic", este regex regresará como
+	resultado el ["titanic"] exacto, por otro lado si lo que se busca es un resultado más corto
+	se puede usar ? como bandera del regex en este caso así /t[a-z]*?i/ en este caso el resultado
+	es ["ti"]
+	Ejemplo:
+	let myRegex = /<.*?1>/; //busca un mach en una cadena con <h1> de manera lazy y estricta
+				//ignora por completo los demás más coincidencias sólo la más 
+				//corta es regresada
+
+
+	 Encontrar sólo coincidencias al principio de una cadena
+	Tenemos que podemos usar de nuevo el caracter ^ (llamdado caret) para hacerlo en escaso 
+	podemos hacerlo con la
+	siguiente sintaxis /^"string"/ y obtenr el resultado si es que coinciden
+	Ejemplo:
+	let myRegex = /^Cal/; //busca un que la primera parte de la string sea "Cal" de serlo retorna
+			      //un true o un false
+
+
+
+	Encontrar coincidencias en el final de la cadena
+	El caracter caret ^ para encontrar coincidencia al principio de una cadena pero si se quiere
+	encontrar al final de una cadena se usa el carecter signo de dollar $ al final de nuestro regex
+	la sintaxis es la siguiente /"string"$/ como en el ejemplo
+	Ejemplo:
+	let myRegex = /caboose$/; // se busa al final de la string el string "caboose"
+
+
+	Para encontrar el resultado cuando se buscan todas las letras y numeros
+	para esto todas las letras del alfabeto y todos los numeros tenemos que se puede crear una 
+	colección de caracteres como este /[A-Za-z0-9]/ pero en javascript existe otro modo más 
+	sencillo tenemos es una clase de caracteres pre definida, con este propocito y es \w que se 
+	usa para este proposito puede ser útil para contar el número de caracteres un una string
+	cabe resaltar que se esta colección retorna la colecion /[A-Za-z0-9_]/ que incluye el signo 
+	_
+	Ejemplo:
+	let myRegex = /\w/g // se buscan todos los caracteres de \w además se busca que sean globlales
+			   // sin importar cuantas veces se repitan
+
+
+	Econtrar todo menos letras y números
+	para hacerlo existe una coleccion de caracteres igual que \w pero es su contrario tiene todos
+	los caracteres menos las letras y los números, y es \W la diferencia es que la W es mayuscula
+	en este caso sería simila a usar caret ^ para excluir resultados
+	Ejemplo:
+	let myRegex = /\W/g; //busca todos los caracteres que no sean letras ni numeros sin importar
+			     //cuantas veces se repita
+
+
+	Encontrar todos los números en un regex
+	para poder hacer esto se usa el caracter especial \d con este caracter dentro de nuestro regex podemos encontrar todos
+	los números, como se muestra en la sintaxis /\d/ y como en el ejemplo
+	Ejemplo:
+	
+	let movieName = "2001: A Space Odyssey";
+	let numRegex = /\d/g; // Change this line
+	let result = movieName.match(numRegex).length;
+
+

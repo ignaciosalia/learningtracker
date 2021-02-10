@@ -1,0 +1,447 @@
+OOP con JavaScript
+
+
+Definir un Objeto e inicializarlo
+let dog = {
+    name: "Pucca",
+    numLegs: 4
+};
+
+
+Accesar la informaci[on usando la sintaxis de punto
+let dog = {
+  name: "Spot",
+  numLegs: 4
+};
+// Imprime en consola los valores de dog name y dog numLegs
+console.log(dog.name, dog.numLegs);
+
+
+Uso de Metodos en objetos (los metodos son funciones que son parte de los objetos)
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function(){return "This dog has " + dog.numLegs + " legs."} //el metodo de dog es sayLegs()
+};
+
+dog.sayLegs();
+
+
+Usar la sintaxis this para facilitar la lectura del texto
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function() {return "This dog has " + this.numLegs + " legs.";}
+};
+
+dog.sayLegs();
+
+
+Constructor de un objeto 
+function Dog(){
+    this.name = "Pucca";
+    this.color = "Grey";
+    this.numLegs = 4;
+}
+Explicación:
+Constructors are functions that create new objects. They define properties and behaviors that will belong to the new object. Think of them as a blueprint for the creation of new objects.
+
+
+Constuir un objeto usando un Construct
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+// Only change code below this line
+let hound = new Dog();
+
+Explicación:
+Notice that the new operator is used when calling a constructor. This tells JavaScript to create a new instance of Bird called blueBird. Without the new operator, this inside the constructor would not point to the newly created object, giving unexpected results. Now blueBird has all the properties defined inside the Bird constructor:
+
+
+Constructor usando parametros obligatorios
+function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+    this.numLegs = 4;
+}
+
+let terrier = new Dog('pucca','grey');
+
+Explicacion:
+Then pass in the values as arguments to define each unique bird into the Bird constructor: let cardinal = new Bird("Bruce", "red"); This gives a new instance of Bird with name and color properties set to Bruce and red, respectively. The numLegs property is still set to 2. The cardinal has these properties:
+
+
+Usar instanceof para verificar que un objeto es o no de un constructor dado
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+
+// se crea un nuevo objeto house y se verifica si es o no del constructor
+let myHouse = new House(3);
+myHouse instanceof House;
+
+
+Usar sintaxis own para conocer las propiedades que de las que es owner el objeto
+Ejemplo
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Only change code below this line
+for(let property in canary){
+  if(canary.hasOwnProperty(property)){
+    ownProps.push(property);
+  }
+}
+console.log(ownProps);
+Explicaci[on:
+name and numLegs are called own properties, because they are defined directly on the instance object. That means that duck and canary each has its own separate copy of these properties. In fact every instance of Bird will have its own copy of these properties. The following code adds all of the own properties of duck to the array ownProps:
+
+
+
+
+La propuieda prototype se usa para asignar un valor a un objeto que es parte de la mayoria de los objetos
+o de todos
+Ejemplo
+function Dog(name) {
+  this.name = name;
+  
+}
+
+Dog.prototype.numLegs = 4;
+
+// Only change code above this line
+let beagle = new Dog("Snoopy");
+
+
+Conocer que propiedades son own por el objeto y cuales son del tipo prototype
+Ejemplo
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+
+let ownProps = [];
+let prototypeProps = [];
+
+// Only change code below this line
+for(let property in beagle){
+  if(beagle.hasOwnProperty(property)){
+    ownProps.push(property);
+  }else{
+    prototypeProps.push(property);
+  }
+}
+
+
+Usar la propiedad constructor para saber si un objto es o no miembro de un constructor
+Ejemplo:
+function Dog(name) {
+  this.name = name;
+}
+
+// Only change code below this line
+function joinDogFraternity(candidate) {
+  if(candidate.constructor === Dog){
+    return true;
+  }else{
+    return false
+  }
+*se recomienda usar la propiedad instanceof en lugar de constructor
+
+
+
+Agregar varias propoiedade usando property
+Ejemplo:
+ function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype = {
+  // Only change code below this line
+  eat: function(){
+    console.log('yo mama');
+  },
+  describe: function(){
+    console.log("My name is " + this.name);
+  },
+  numLegs: 4
+};
+
+
+La propiedad Construct para definir el prototype
+function Dog(name) {
+  this.name = name;
+}
+
+// Only change code below this line
+Dog.prototype = {
+  constructor: Dog,
+  numLegs: 4,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+
+Verificar si un objeto es parte de la funcion que lo define
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+// Only change code below this line
+Dog.prototype.isPrototypeOf(beagle);
+
+
+La cadena de un objeto y el objeto "maestro" Object en javascript
+function Dog(name) {
+  this.name = name;
+}
+
+let beagle = new Dog("Snoopy");
+
+Dog.prototype.isPrototypeOf(beagle);  // yields true
+
+// Fix the code below so that it evaluates to true
+Object.prototype.isPrototypeOf(Dog.prototype);
+
+
+Usar herencia para no repetir codigo
+herencia en objetos es que una propiedad en el constructor la heradaran todos los objetos hijos, se le conoce como el principio
+DRY, don't repeat yourself Ejemplo:
+function Cat(name) {
+  this.name = name;
+}
+
+Cat.prototype = {
+  constructor: Cat
+  
+};
+
+function Bear(name) {
+  this.name = name;
+}
+
+Bear.prototype = {
+  constructor: Bear
+  
+};
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+
+Como usar herencia en Javascript usando Object.create()
+Object.create(obj) creates a new object, and sets obj as the new object's prototype. Recall that the prototype is like the "recipe" for creating an object. By setting the prototype of animal to be Animal's prototype, you are effectively giving the animal instance the same "recipe" as any other instance of Animal.
+Ejemplo:
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+// Only change code below this line
+
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype);
+
+
+
+Ligar un superObjeto u objeto padre a un objeto hijo
+Ejemplo:
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+
+
+Constructor de un sub ojbeto 
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Only change code below this line
+
+Bird.prototype.constructor = Bird; //muestra que es una subclase de Bird y no directa de Animal 
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+
+let beagle = new Dog();
+
+
+
+Agregar metodos despues de la herencia de un objeto padre
+Esto se hace para que cada clase tenga sus m[etodos particulares diferentes a los del super objeto padre. Que estos objetos sean
+m[as especificos
+Ejemplo:
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function(){
+    console.log('Woof!')
+}
+
+let beagle = new Dog();
+
+
+
+Override metodos heredados
+Esto se hace para cuando un metodo heredado no aplica para nuestro objeto hijo, esto es si para nuestro objeto hijo el metodo
+volar no aplica, se puede (sobre escribir) override el metodo para que haga lo que se necesita para nuestro objeto hijo
+Ejemplo Objeto padre pajaro, objeto hijo pingüino:
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Only change code below this line
+
+Penguin.prototype.fly = function(){
+    return "Alas, this is a flightless bird."
+}
+
+// Only change code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+
+Usar mixin para agregar propiedades entre objetos que no est[an relacionados por herencia
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Only change code below this line
+let glideMixin = function(obj){
+  obj.glide = function(){
+    console.log("Glidin, woosh!");
+  }
+};
+glideMixin(bird);
+glideMixin(boat);
+
+
+
+Usar Closure para evitar que las propiedades sean modificadas
+Para hacerlo las propiedades se defiene con let y s[olo pueden ser accesadas por un metodo propio del objeto con esto se vuelven
+privadas y no se tiene acceso directo a ellas s[olo por medio de la funci[on
+ function Bird() {
+  let weight = 15;
+  this.getWeight = function(){
+    return weight;
+  };
+
+}
+
+let duck = new Bird();
+console.log(duck.getWeight());
+
+
+Understand the Immediately Invoked Function Expression (IIFE)
+funciones anonimas, parecidas a los singlentones en Kotlin, con esto la funci[on se ejecuta justo cuando es declarada
+Ejemplo:
+
+(function () {
+  console.log("A cozy nest is ready");
+})();
+
+//makeNest();
+
+
+
+
+Est[a sintaxis se puede usar para hacer mixins como en el ejemplo
+let funModule = (function (){
+ return {
+    isCuteMixin : function(obj) {
+  obj.isCute = function() {
+    return true;
+  };
+},
+singMixin : function(obj) {
+  obj.sing = function() {
+    console.log("Singing to an awesome tune");
+  };
+}
+
+ }
+})();
+dos mixins son unidos para ser retornados al objeto que se quiera en este ejemplo se ve como se agrega el mixin al objeto y como 
+se accesa el nuevo metodo desde el objeto
+ let funModule = (function (){
+ return {
+    isCuteMixin : function(obj) {
+  obj.isCute = function() {
+    return true;
+  };
+},
+singMixin : function(obj) {
+  obj.sing = function() {
+    console.log("Singing to an awesome tune");
+  };
+}
+
+ }
+})();
+
+let bird = {
+	name : "donald",
+  age : 4
+};
+
+funModule.isCuteMixin(bird);
+console.log(bird.isCute());
+
+
+

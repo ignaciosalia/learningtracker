@@ -1,0 +1,359 @@
+Conversi[on de celcius a fahrenheit
+function convertToF(celsius) {
+  let fahrenheit = ((celsius * 9)/5)+ 32;
+  console.log(fahrenheit);
+  return fahrenheit;
+}
+
+convertToF(30);
+
+
+Cambiar el orden de una string usando un arreglo y un for
+function reverseString(str) {
+  let arr = str.split(""); //split guarda los elementos usando el sepradaror que se especifique, en este caso se especifica no espacios
+  str = ''; //se borra str para guardar la nueva cadena
+  //console.log(arr);
+  for(let i = arr.length -1; i >= 0; i--){
+      //la nueva cadena se le van sumando los miembros del string en el el orden al reves
+      str = str + arr[i];
+  }
+  console.log(str); //se verifica que la nueva str este alreves 
+  return str;
+}
+
+reverseString("hello");
+
+
+Factorizar un número, se puede usar recursividad para hacer esto
+function factorialize(num) {
+  let num1 =1;
+  for(let i = 1; i <= num; i++){
+    num1 *= i;
+  }
+  return num1;
+}
+
+factorialize(5);
+
+FACTORIZACI[ON CON RECURSIVIDAD
+function factorial(num){
+  if(num <=0){
+    return 1;
+  }
+  else{
+    console.log(num);
+    return (num * factorial(num-1));//NO HACE FALTA SEGUNDA VARIABLE DADO QUE EL RETURN EN EST[A LINEA FUNCIONA COMO ELLA
+    
+  }
+}
+
+factorial(5);
+
+
+Encontrar la palabra más larga en una cadena
+
+function findLongestWordLength(str) {
+  let arr = str.split(" ");
+  let len = 0;
+  console.log(arr[1].length);
+  for(let i = 0; i < arr.length; i++){
+    if(len < arr[i].length){
+      len = arr[i].length
+      console.log(len);
+    }
+  }
+  return len;
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+
+
+Encontrar el mayor numero de cada arreglo y regresar cada número mayor en un arreglo
+function largestOfFour(arr) {
+  let may = [];
+  let mayo = '';
+ for(let i in arr){
+  //console.log(arr[i]);
+   mayo = arr[i][0];
+  for(let j in arr[i]){
+    //console.log(arr[i][j]);
+    if(mayo < arr[i][j]){
+      mayo = arr[i][j];
+      
+    } 
+    //console.log(mayo);
+  }
+  may.push(mayo);
+ 
+ }
+ console.log(may);
+  return may;
+}
+
+
+largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
+
+
+
+
+Encontar si es la ultima parte de una cadena
+function confirmEnding(str, target) {
+ let res  = str.substring(str.length - target.length  , str.length)
+   if(res === target){
+     return(true);
+   }
+   else{
+     return(false);
+   }
+}
+
+confirmEnding("Bastian", "an");
+
+
+
+Sumar una cadena a si misma n n[umero de veces
+function repeatStringNumTimes(str, num) {
+  let str1 = "";
+ for(let i = 0; i < num; i++){
+ 	str1 = str1 + str;
+ }
+ console.log(str1);
+ return(str1);
+}
+
+repeatStringNumTimes("abc", 2);
+
+**con recursividad** // estoy muy contento por este
+function repeatStringNumTimes(str, num) {
+  if(num <= 0){
+   return "";
+  }else{
+  console.log(str);
+  	return  str + repeatStringNumTimes(str, num -1);
+  }
+}
+
+repeatStringNumTimes("abc", 2);
+
+
+Encontrar si la longitud de la primera palabra de un string es menor a un numero dado
+function truncateString(str, num) {
+
+  let res = str.substring(str.legth - num, num);
+  console.log(res);
+if(res.length == num && str.length > num){
+  str = res + "...";
+  console.log(str);
+}
+
+  return str;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+usando slice
+function truncateString(str, num) {
+  return str.length > num ? str.slice(0, num) + "..." : str;
+}
+
+
+Encontrar el primer valor en un arreglo de complir la condici[on de una funci[on
+function findElement(arr, func) {
+  let num = 0;
+  for( let i in arr){
+    if(func(arr[i])){
+      num = arr[i];
+      console.log(num);
+      return num;
+    }
+  }
+  return ;
+}
+
+findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
+
+
+Encontrar si una variable es booleana o no de serlo regresar true, de lo contrario regresar false
+function booWho(bool) {
+  /*if(bool === true || bool === false){
+    return true;
+  }else{
+    return false;
+  }*/
+  return (bool === true || bool === false) ? true : false;
+}
+
+booWho(null);
+
+
+Convertir la primer letra de cada palabra de una cadena en mayuscula
+function titleCase(str) {
+  let arr = str.split(" ");
+  let arr1 = [];
+  let arr2 = [];
+  console.log(arr);
+  for(let i in arr){
+    arr[i] = arr[i].toLowerCase();
+    arr1.push(arr[i][0].toUpperCase());
+    console.log(arr1);
+    arr2.push(arr[i].slice(1,arr[i].leghth))
+    console.log(arr2);
+  }
+  str = "";
+  for(let j in arr1){
+    str+= arr1[j] + arr2[j]+ " ";
+  }
+  str =  str = str.slice(0,str.length-1);
+  console.log(str)
+  console.log(arr1);
+  return str;
+}
+
+titleCase("I'm a little tea pot");
+
+function titleCase(str) {
+  var convertToArray = str.toLowerCase().split(" ");
+  var result = convertToArray.map(function(val) {
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase()); //chartAt() funciona para cambiar el valor de la primer letra a uppercase
+  });
+  return result.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+
+
+Insertar datos de un arreglo a otro en un index especifico
+function frankenSplice(arr1, arr2, n) {
+  
+   let arr = arr2.slice();
+
+for(let i in arr1){
+     // console.log(arr1[j]);
+        arr.splice(n,0,arr1[i]);
+        n++;  
+}
+
+ console.log(arr1);
+ console.log(arr2);
+ console.log(arr);
+  return arr;
+}
+
+frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2); //no le creo a la soluci[on de freecodecamp
+
+function frankenSplice(arr1, arr2, n) {
+  
+  let arr = [];
+ 
+ for(let i in arr2){
+ /*	if(i == n){
+  console.log(i);
+  }*/
+  if(i == n){
+   for(let j in arr1){
+   	 arr.push(arr1[j]);
+   }
+  
+  }
+  arr.push(arr2[i]);
+  //console.log(i);
+ }
+ arr2 = arr;
+ //console.log(arr2+ "jala");
+ /* for(let i = 0; i < arr1.length + arr2.length; i++){
+  	arr[i].push(arr1[i]);
+    if(i == n){
+    	arr[i].push(arr2[i]);
+    }
+  }
+  console.log(arr);*/
+  return arr2;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+frankenSplice([1, 2, 3], [4, 5], 1);
+frankenSplice([1, 2], ["a", "b"], 1);
+
+
+Validar que no existan falsy valores en un arreglo 
+
+
+Remove all falsy values from an array.
+
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+
+Hint: Try converting each value to a Boolean.
+
+function bouncer(arr) {
+  let arr1 = arr.filter(arrs => arrs);
+  console.log(arr1);
+  return arr1;
+}
+
+bouncer([7, "ate", "", false, 9]);
+bouncer([false, null, 0, NaN, undefined, ""])
+
+
+
+Ordenar un arreglo de menor a mayor y comparar en que index se debe organizar un valor dado
+function getIndexToIns(arr, num) {
+  console.log(arr.sort(function(a,b){return a-b}));
+ let i = 0;
+  while(i < arr.lenght || num > arr[i]){
+    i++
+  }
+  console.log(i)
+  return i;
+}
+
+
+getIndexToIns([10, 20, 30, 40, 50], 35)
+getIndexToIns([], 19)
+
+
+Buscar si los caracteres miembros de un arreglo existen en otro arreglo
+function mutation(arr) {
+
+	let uno = arr[1].toLowerCase();
+  let dos = arr[0].toLowerCase();
+  for(let i = 0; i < uno.length; i++){
+  	if(dos.indexOf(uno[i]) < 0) return false;
+  }
+ 
+	return true;
+}
+
+console.log(mutation(["voodoo", "no"]));
+console.log(mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]));
+console.log(mutation(["hello", "Hello"]));
+let arr = "voodoo";
+let reg = "/[no]/gi";
+
+
+Dividir un arregelo en 2 y los sub arreglos deben tener un length n dado
+function chunkArrayInGroups(arr, size) {
+
+  let arr1 = [];
+  for(let i = 0; i < arr.length;){
+  	let arr2 =[];
+    for(let j = 0; j < size; j++){
+    	if(i < arr.length){
+    		arr2.push(arr[i++]);
+    		console.log(arr2[j]); 
+    	} 
+    }
+    arr1.push(arr2);
+  }
+  console.log(arr1);
+  return arr1;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4)
+
+
+
+
+

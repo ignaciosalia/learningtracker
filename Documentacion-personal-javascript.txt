@@ -1,0 +1,309 @@
+JavaScript Basico
+
+* 8 tipos de variable: undefined, null, boolean, string, symbol, bigninit, number, object
+	Para diferenciar entre números y Strings se tiene que establecer y declara estas usando comillas
+	Declarar una variable: var ourName;
+	Todas la variables en javascript al ser declaradas como arriba son inicializadas como undifined
+	Sólo al asiganar el valor al inicializar es como se define el tipo de variable, de otra manera al usarlas y no asignar valor
+	se recibe el error NAN para numero y "undifined" en el caso de las strings
+	
+	Las variables y funciones en JavaScript, son sensibles a Mayusculas y minusculas, esto quiere decir que se pueden tener varias
+	variables con mismo nombre pero diferente uso de mayusculas y minusculas
+	Se recomienda usar camelCase o casoDelCamello para declarar nombres de variables y funciones
+
+	En el caso de números se puede usar los operadores básicos aritmeticos como + - * /
+	Se puede usar la forma i++; el mismo caso aplica a la forma para restar uno a una variable tipo número i--;
+	Del mismo modo se puede usar i+=5: para sumar más de uno a una variable, también el caso de la resta está soportado i-=5;
+	caso de la multiplicación i*=5; el caso de la divición i/=5;
+	Los números flotantes también son soportados por javascript, los flotantes soportan las operaciones aritmeticas
+	El % regresa el complemento de una operación, pero no funciona correctamente en caso de números negativos
+	
+	Uso de string, deben ser declaradas dentro de "" o '' ejemplo: var miNombre = "Jorge";
+	para usar comillas dentro de una variable tipo string se tiene que usar \ al commienzo y final de la cadena que se quiere en
+	comillas var ejemplo = "Yo \"Jorge Salia\""; nota se tiene que tener cuidado donde se coloca \ y usarlo como en el ejemplo
+	El uso de comillas o '' depende si se quier usar comillas dentro de la string o no por ejemplo si se quiere guardar o usar
+	la cadena de un link se puede usar '' en lugar de comillas
+	Ejmplo: var myStr = '<a href="http://www.example.com" target="_blank">Link</a>'; al usar '' se evita el uso de \ para las
+	comillas dentro de la cadena
+	caracteres de escape en javascript para strings \' single quote comilla simple \" comillas dobles \\ backslash o (\) 
+	\n salto de linea \r regreso al principio \t tab \b word boundary \f form feed 
+	Unir o "sumar" strings en javascrip sólo depende de usar el operador + para hacerlo se tiene que tener cuidado con los espacios
+	el operador no coloca ninguno al unir las string se tiene que poner antes de realizar la operación
+	también se puede usar el operador += para sumar o unir cadenas al igual que la suma tener cuidado con los espacios se puede
+	usar para unir variables tipo string 
+
+	Saber el número de caracteres en un string, se conoce usando .length despúes del nombre de variable o literal que se quiera 
+	Ejemplo myName.length;
+	El uso de corchetes se puede usar para encontar el caracter una posición especifica en una string 
+	Ejemplo myFirstLetter = myName[0];
+	La inmutabilidad de las string, quiere decir que no se puede cambiar un caracter especifico de una string, no se puede hacer
+	por ejemplo myName[0] = "j"; se tiene que cambiar toda la cadena para cambiar un valor en esta, 
+	Ejemplo myName = "Hola pinchi mundo";
+	Se puede encontrar el n miembro de una cadena usando corchetes y guardarlo en una nueva cadana
+	Ejemplo mySecondLetter = myName[1];
+	Encontrar el último valor de una cadena combinando length y corchetes 
+	Ejemplo myLastLetter = myName[myName.length -1] esto es del largo total de la cadena quiero la última posición el menos uno
+	compensa que la javascript comienza a contar desde 0
+	Usando esta forma se puede encontrar caracteres en especifico de la cadena
+	Ejmplo myLetter = myName[myName.length -3]; 
+
+	Booleanos en Javascript:
+	Sólo acepta 2 tipos de variables true o false, para definir el valor de un booleano nunca se deben usar valores dentro de 
+	comillas
+	
+	Arreglos:
+	Un arreglo es una colección de datos con alguna relación entre ellos 
+	Ejemplo var sandwich = ["pan', 1 , "doce", 3] como se ve se puede guardar varios tipos de información a como aquí strings y
+	números 
+	También se puede tener un arreglo de arreglos 
+	Ejemplo var misArreglos = [["toros", 23],["Lakers", 30]]
+	Como en el caso de las cadenas se puede acceder aun elemento del arreglo usando corchetes 
+	Ejemplo miArreglo = [1,3,4,3]; miNumero = miArreglo[0]; regresa el primer elemento de mi arreglo
+	A diferencia de las strings se puede modificar un valor especifico del arreglo usando un index especificado por corchetes
+	Ejemplo miArreglo[0] = 12; en nuevo valor en la primera posición del arreglo es 12
+	Arreglo multidimensional 
+	Ejemplo miArreglo = [[1,2,3],[4,5,6],[7,8,9]]; este es una arreglo de 2 dimensiones y se accesa de la siguiente manera
+	midato = miArreglo[1][1]; en este caso el valor es igual a 5 de ese modo se puede buscar y accesar los valors
+	Función push para arreglos
+	Ejemplo miArreglo = [1, 2, 3]; miArreglo.push(4); el resultado miArreglo = [1,2,3,4] la función push literalemente presiona 
+	un valor al final del arreglo sirve para arreglos de una a n dimensiones
+	La función pop quita el último valor de un arreglo 
+	Ejemplo miArreglo = [1,2,3]; oneDown = miArreglo.pop(); da como resultado oneDown = 3 
+	La función shift() trabaja como pop quitando un elemento del arreglo pero quita el primer elemento en lugar del último
+	Ejemplo miArreglo = [1,2,3]; onDown = miArreglo.shift(); el valode oneDown es ahora 1
+	Función unshift() funciona como push pero agrega un valor al principio del arreglo
+	Ejemplo miArreglo = [1,2,3]; miArreglo.unshift(0); el arreglo ahora es miArreglo = [0,1,2,3];
+
+	Funciones en javaScript:
+	se declaran de la siguiente manera
+	function nombreDeFunción("parametros para usar con los metodos de la funcion"){
+		"funciones a ejecutar"
+	}
+	Ejemplo de una función con parametros
+	fucntion functionWithArgs(parmetro1, parametro2){
+		console.log(parametro1 + parametro2);
+	}
+	Se llama
+	fucntionWithArgs("hola", "mundo");
+	Variable globales 
+	Existen fuera de todas funciones y son publicas a todas las funciones del programa cada una puede usarla cambiar el valor y
+	compartirla, no se recomiendo su uso dado que puede llevar a errrores o confuciones
+	Una variable local a diferencia de una global no puede ser vista ni usada por otras funciones, es más segura y fácil de 
+	controlar
+	En Funciones se puede usar como en otros lenguaje return para regresar el resultado de los metodos de la función
+	
+
+	Condicionales IF
+	Funciona como en otros lenguajes, 
+	Ejemplo: if(condicion){
+			acciones a tomar
+			return
+		}
+	Comparacion con operador de igualdad
+	el operador es == no debe confundirce con = que indica la asignacion de un valor a un variable, en javascript se pueden com-
+	parar numeros y string mientras que se convierta un valor al otro, esta oparacion se llama "Type Coercion" o coercion de 
+	de tipo, es igual al cast en otros lenguajes de programaci[on en este caso el operador == hace el cast en automatico sin ne-
+	cesitar otra operaci[on
+	Ejemplo : 1 == 1 \\resultado true, 1 == "1" \\resultado true 
+	Operador de igualdad estricto ===
+	funciona de manera similar a == pero no realiza ning[un cast al comparar por el contrario busca una igualdad absoluta o 
+	"estricta" los valores comparados tiene que ser del mismo tipo y el mismo valor para ser mostrados como true
+	Ejemplo: 3 === 3 \\true, mientras que 3 === "3" \\ no lo es
+	Para saber el tipo de valor con el que se trabaja se puede usar la funcion typeof y retorna el tipo de valor 
+	Ejemplo typeof 3 //retorna numero typeof '3' // retorna string
+	Operador de desigualdada !=
+	compara dos valores y verifica que sean diferentes si lo son retorna true, mientras que de ser igual retorna false
+	Ejemplo 1 != 2 //true 1 != 1 //falso 1 != true // false 
+	Operador de desigualdad estricto !==
+	Como su contra parte de igualdad estricta se tiene que no realiza ning[un tipo de type correction para realizar la operaci[on
+	no cambia el tipo de valor para compararlo y valores iguales pero de diferente tipo de varaible retornan un valor true 
+	indicando que no son iguale
+	Ejemplo 1 !== 1 //false 1 != "1" //true 1 != 2 //true
+	Operador mayor que >
+	Al igual que la igualdad realiza un cast de tipo de variable para comparar 
+	Ejemplo 1 > 0 //true 1 > "0" //true 1 > 2 //false
+	Operador >= 
+	Comprueba que si el primer es mayor o igual al otro valor tambi[en realiza un cast de tipo de variable para comparar
+	Ejemplo 1 >= 1 //true 1 >= 0// true 1 >= 3 //false
+	Operador menor que < 
+	Compara si el primer valor es menor al segundo, realiza un cast de tipo de variable para poder realizar la comparaci[on
+	Ejemplo 1 < 2 //true, 1 < 0 //false, 1 < 1 //false, 1 < '2' //true
+	Operador menor igual que <=
+	Compara si el valor es menor o igual a otro valor, tambi[en realiza un cast a las variables para poder compararlas
+	Ejemplo: 4 <= 5 //true, 4 <= '4' //true, 4 <= 2 //false 
+	Operador && o y
+	Es un operador que no realiza dos o m[as comparaciones, en este caso para que sea true ambar condiciones tienen que ser ver-
+	daderas 
+	Ejemplo: 4 <= 5 && 4 >= 2 //true, 4 <= 2 && 4>=4 //false 
+	Operador || o or 
+	Es cuando se tiene que cumplir una de las dos o más condiciones para que la condición sea verdadero
+	Ejemplo: 4 <= 5 || 4 >= 2 //true, 4 <= 2 || 4>=4 //true 
+
+	Else como complemente de la función IF
+	se usa cuando la condición dentro de un If no se cumple y se quiere ejecutar otro codigo 
+	Ejemplo:	
+	if (val < 5){
+		printf("el valor es menor a 5")
+	}else{
+		printf("es 5 o mayor")
+	}
+	Else IF
+	Es la combinaci[on de If y else, al no cumplirse una primera condici[on dentro del else se usa un if para poder usar otra 
+	condici[on 
+	
+
+	Función Switch para seleccionar varias opciones
+	ejemplo:
+	switch(variable){
+		case "a":
+		console.log("A");
+		break;
+		case "b":
+		console.log("B");
+		break;
+	}
+	cada caso es evaluado como un if estricto com if(variable === 1), se tiene que usar break después de cada caso para evitar
+	que javascript ejecute el siguiente 
+	En switch si ninguno de los case se cumple se puede especificar un caso default, es parecido al else en if, es cuando 
+	las ninguna de las condiciones anteriores se cumple, se tiene que usar igual que otros case break para detener la ejecución
+	Ejemplo:
+	switch(variable){
+		case "a":
+		console.log("A");
+		break;
+		case "b":
+		console.log("B");
+		break;
+		default:
+			defaultStatement;
+			break;
+	}
+	Se pueden agrupar varios case para cumplir un sólo statement mientras que no se ponga un break entre ellos
+	Ejemplo:
+	switch(val) {
+  		case 1:
+  		case 2:
+  		case 3:
+    		result = "1, 2, or 3";
+    		break;
+  		case 4:
+    		result = "4 alone";
+	}
+	
+
+	Retornar Booleanos de funciones
+	Si el resultado de una operaci[on es un booleano en lugar de usar un if se puede usar directo la operaci[on de comparaci[on
+	en el return
+	Ejemplo:
+	en lugar de 
+	if( a < b){
+	 return true;} 
+	else{ 
+	return false;}, 
+	se puede usar return a < b; es el mismo resultado pero con menos lineas
+	
+	Objetos
+	Un Objeto en Javascript es una colección propiedades asociadas entre si con un nombre (key) y un valor. el valor de un objeto
+	puede ser una funcción en este caso se conoce como un método. Los objetos son usados para describir colecciones con las mismas
+	propiedades, por ejemplo un auto tiene las mismas propiedades generales pero los valores de estás cambian segun el auto
+	todos los autos tienen ruedas, todos los autos tiene un color, tienen una marca, etc. 
+	Definir un objeto:
+	Ejemplo 
+	var myObjt = {
+		property1: '',
+		property2: '',
+		property3: number
+	};
+	si se define un objeto auto
+	var myCar = {
+		maker: 'Ford',
+		color: 'Red',
+		numberWheels: 4
+	};
+
+	Las propiedades de un objeto se pueden accesar con el nombre del objeto y un punto myCar.make nos da el valor de make en el 
+	objeto myCar
+	Otra forma de accesar a el valor de un objeto es usando [], myCar['make'] es el valor de make en myCar, siempre debe de 
+	ponerse comillas dobles o sencillas en el nombre de la propiedad cuando se usen corchetes
+	En este caso se puden buscar propiedades usando variable ejemplo 
+	var maker = 'dodge';
+	var cars = myCar[maker]; // regresa el objeto donde make sea dodge
+	Los valores de las propiedades de un objeto se puden cambiar en cualquier comento usando ya sea la notaci[on de de punto o 
+	la notaci[on de corchetes
+	se puden agregar m[as propiedades a un objeto de la siguente manera 
+	myCar.year = 1998; añade la nueva propiedad year y se inica con el valor 1998
+	Para borrar una propieda de un objeto se usa la funci[on delete ejemplo
+	delete myCar.year; borra la propiedad
+	La propieda de usar variables con objetos con el caso de usar corchetes, se puede usar tambi[en para validar informaci[on
+	en lugar de un switch o un if (ver ejemplo en esta carpeta)
+	La funci[on hasOwnProperty, regresa un valor un valor true o false al comprobar si el valor existe o no en el objeto
+
+	Manipulaci[on de colecciones de objetos
+	JavaScript Object Notation es un formato de intercambio de informaci[on de bajo peso. Es f[acil para las personas leerlo 
+	y tambi[en para las m[aquinas 
+	JSON est[a construido sobre dos estructuras:
+		Una colecci[on de pares nombre/valor. esto se conoce en diferentes lenguajes de programaci[on con diferentes nombres
+		como arreglo, estructura, etc.
+		Una lista ordenada de valores, en la mayor[ia de los lenguajes se conoce como arreglo
+	Ejemplo:
+	var ourStorage = {
+  	"desk": {
+ 	   "drawer": "stapler"
+	  },
+	  "cabinet": {
+	   "top drawer": { 
+	   "folder1": "a file",
+      	   "folder2": "secrets"
+    	},
+    	"bottom drawer": "soda"
+  	}
+	};
+
+	Accesar Informaci[on:
+	para accesar informaci[on dentro de un JSON se tiene que hacer una combinaci[on de la notaci[on de punto y corchetes
+	Ejemplo:
+	ourStorage.cabinet["top drawer"].folder2;  // "secrets"
+	ourStorage.desk.drawer; // "stapler"
+
+	Ciclos
+	Funci[on While para loop
+	Se llama while por que corre mientras se cumpla una condici[on
+	Ejemplo:
+	var ourArray = [];
+	var i = 0;
+	while( i < 5){
+		ourArray.push(i);
+		i++;
+	}
+	Funci[on for
+	Se repite mientras se cumpla una condici[on
+	Ejemplo:
+	for(var i = 0; i < 5; i++){
+		ourArray.push(i);
+	}
+	Funci[on do While
+	Es un loop que realiza la acci[on mientras se cumpla la condici[on, simpre realiza la operaci[on por lo menos una vez
+	do{
+		i++
+		console.log(i);
+	}while(i < 5);
+	
+
+	Furncion ternario '?'
+	Hace las veces de un else if, al comprobar una condici[on y en la misma linea tener si es verdadera retornar un resultado
+	si no lo es retornar otro 
+	return a == b ? "Igual" : "Diferente"; en este caso se ve que se comprueba si dos variables son iguales, se usa '?' para
+	indicar los posibles 2 resultados y se separan usando ":" 
+	
+	Se pueden anidar condiciones ternary como si fuern if, esto al ocupar uno de los resultados con otro ternary
+	return num == 0 ? "zero" : (num < 0) ? "negative" : "positive"; en este caso se usa para comprobar si un numero es negativo
+	o no 	
+
+	
+	
+	
+	
+	
+
+	
+	

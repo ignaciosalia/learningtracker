@@ -1,0 +1,12 @@
+// Only change code below this line
+function countdown(n){
+  if(n <= 0){
+    return [];
+  }else{
+    const arrEy = countdown(n-1);
+    arrEy.unshift(n);
+    console.log(arrEy);
+    return arrEy;
+  }
+}
+// Only change code above this line
