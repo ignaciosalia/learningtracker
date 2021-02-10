@@ -15,6 +15,6 @@ In the last months I have been learning the basics of web developing and android
 
 | Tema   | Avance      | Certificación | Uso Regular|
 |--------|:-----------:|:-------------:|:----------:|
-|**HTML**| :heavy_check_mark|:heavy_check_mark  |:heavy_check_mark|
-|**CSS**|:heavy_check_mark|:heavy_check_mark  |:heavy_check_mark |
-|**Javascript**|:heavy_check_mark| |:heavy_check_mark|
+|**HTML**| :heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark:|
+|**CSS**|:heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark: |
+|**Javascript**|:heavy_check_mark:| |:heavy_check_mark:|
