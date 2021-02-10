@@ -13,8 +13,14 @@ In the last months I have been learning the basics of web developing and android
 5. XML
 6. Android IDE
 
-| Tema   | Avance      | Certificación | Uso Regular|
+| Tema   | Nivel     | Certificación | Uso Regular|
 |--------|:-----------:|:-------------:|:----------:|
-|**HTML**| :heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark:|
-|**CSS**|:heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark: |
-|**Javascript**|:heavy_check_mark:| |:heavy_check_mark:|
+|**HTML**| :heavy_check_mark: :heavy_check_mark: :heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark:|
+|**CSS**|:heavy_check_mark::heavy_check_mark: :heavy_check_mark:|:heavy_check_mark:  |:heavy_check_mark: |
+|**Javascript**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
+|**Javascript OOP**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
+|**JSON**|:heavy_check_mark:| |:heavy_check_mark:|
+|**Github**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
+|**Git**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
+|**Kotlin**|:heavy_check_mark:| |:heavy_check_mark:|
+|**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
