@@ -12,3 +12,9 @@ In the last months I have been learning the basics of web developing and android
 4. Kotlin
 5. XML
 6. Android IDE
+
+| Tema   | Avance      | Certificación | Uso Regular|
+|--------|:-----------:|:-------------:|:----------:|
+|**HTML**|![done][done]|![done][done]  |![done][done]|
+|**CSS**|![done][done]|![done][done]  |![done][done] |
+|**Javascript**|![done][done]|![done][done]  |![done][done]|
