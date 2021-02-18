@@ -24,3 +24,9 @@ In the last months I have been learning the basics of web developing and android
 |**Git**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**Kotlin**|:heavy_check_mark:| |:heavy_check_mark:|
 |**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
+
+
+## Update of learning progress
+17 -02 -2021
+This week I finish the freecodecamp Javascript and Data Structures I feel greate and this is very important step for me and I feel more confident in my work and my hability to work and dedicate time to learn and build new proyects, right now I'm working in front end Libraries.
+So let's continue working and continue improving my coding :P
