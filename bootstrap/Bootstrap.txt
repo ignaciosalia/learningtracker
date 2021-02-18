@@ -1,0 +1,111 @@
+Bootstrap:es un Framework open-source, pensado en responsive design y mobile-first front-end en desarrollo web.
+
+Primer Ejemplo: Bootstrap sirve para que el contenido se ajuste sin importar el tama;o de la pantalla donde se abra la pagina
+	esto facilita la adaptaci[on del sitio en sitios moviles
+ Para hacerlo se tiene que agregar al documento de HTML :
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+Ejemplo de manejo de Imagen:
+	<img class="img-responsive" src="https://bit.ly/fcc-running-cats">
+	La clase de img-responsive es parte de bootstrap que ayuda a ajustar la imagen seg[un el tama;o de dispositivo que se usa
+
+Ejemplo centrar Texto:
+	<h2 class="red-text text-center">CatPhotoApp</h2>
+	La clase de text-center es parte de bootstrap para poder centrar la etiqueta de texto
+
+Ejemplo bot[on:
+	<button class="btn btn-default">Like</butt
+	La clase btn y btn-default son para dar un estilo mejor a un bot[on 
+
+Ejemplo botton block:
+	 <button class="btn btn-default btn-block" type="submit">Submit</button>
+	Esta clase hace que el estilo del boton aparesca al 100% del ancho de la pantalla, sin importar el tamanio de est[a 
+
+Ejemplo boton primary:
+	<button class="btn btn-primary btn-block">Like</button>
+	Para usarlo debe estar acompa;ado de btn y btn-block, asigna el color principal que se quiere usar en la app
+
+Ejemplo de boton info:
+	<button class="btn btn-info btn-block">Info</button>
+	Es parte de clases determinadas para diferentes acciones que un usuario se puede usar en este caso asigna otro color
+	diferente para aclarar que es una accion de informaci[on
+
+Ejemplo de boton danger:
+	<button class="btn btn-block btn-danger">Delete</button>
+	En este caso es util para poder dar una advertencia visual a lo que puede pasar si el usuario realiza esta acci[on el 
+	boton se va a colorear de rojo
+
+Ejemplo de bootstrap Grid:
+	<div class="row">
+  		<div class="col-xs-4">
+  			<button class="btn btn-block btn-primary">Like</button>
+  		</div>
+  		<div class="col-xs-4">
+  			<button class="btn btn-block btn-info">Info</button>
+  		</div>
+  		<div class="col-xs-4">
+  			<button class="btn btn-block btn-danger">Delete</button>
+  		</div>
+	</div>
+	Esta clase row establece que queremos los elementos dentro de este div los queremos en filas
+	Despues cada elemento dentro de col tenemos que especificar cuantos espacios de columnas tenemos que hacer por definicion
+	se tienen 12 columnas para dividir los elementos
+
+**bootstrap se puede sustituir partes completas del CSS hecho a la medida por clases establecidad en bootstrap**
+
+
+Ejemplo uso de tag span y class text-danger:
+	<p>Things cats <span class="text-danger">love</span>:</p>
+	En este caso se usa para poder remarcar una palabra o parte de nuestro texto
+
+Ejemplo de responsive grid texto imagen:
+	<div class="row">
+  		<div class="col-xs-8">
+  		 <h2 class="text-primary text-center">CatPhotoApp</h2>
+  		</div>
+  		<div class="col-xs-4">
+  		 <a href="#"><img class="img-responsive thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+  		</div>
+  	</div>
+	En esta caso se tiene el problema de de crear un titulo para la app, se usa el grid estableciendo como dominante el texto
+	con esto se hace el m[as grande y adem[as se condiciona la imagen como secundaria ajustandola al tama;o del texto
+
+Ejemplo uso de font awesome:
+	Primero agregar el link de font Awesome
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<button class="btn btn-block btn-primary">Like <i class="fas fa-thumbs-up"></i></button> 
+
+Ejemplo de responsive grid para organizar botones:
+	<div class="row">
+      <div class="col-xs-6">
+    <label><input type="radio" name="indoor-outdoor"> Indoor</label>
+      </div>
+      <div class="col-xs-6">
+    <label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+    </div>
+    <div class="col-xs-6">
+    <label><input type="checkbox" name="personality"> Loving</label>
+    </div>
+    <div class="col-xs-6">
+    <label><input type="checkbox" name="personality"> Lazy</label>
+    </div>
+    <div class="col-xs-6">
+    <label><input type="checkbox" name="personality"> Crazy</label>
+    </div>
+    <input type="text" placeholder="cat photo URL" required>
+    </div>
+	En este ejemplo se usa primero row, y despues col-xs-6 para establecer columnas de 2 
+
+Ejemplo de organizaci[on de otro tipo de elementos con grid:
+	<div class="row">
+  <div class="col-xs-4">
+    <label><input type="checkbox" name="personality"> Loving</label>
+    </div>
+    <div class="col-xs-4">
+    <label><input type="checkbox" name="personality"> Lazy</label>
+    </div>
+    <div class="col-xs-4">
+    <label><input type="checkbox" name="personality"> Crazy</label>
+    </div>
+    </div>
+
