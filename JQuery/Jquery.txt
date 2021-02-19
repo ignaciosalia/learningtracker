@@ -1,0 +1,198 @@
+JQuery
+	Es una libraria de JavaScript que permite Hacer cambios a HTML, adem[as de manejar los eventos y animaciones, es soportado
+	a lo largo de diferentes browsers y permite que hacer estas acciones de maner m[as sencilla y r[apida
+
+1.- Como Script las etiquetas y el documento para que este listo para trabajar:
+	En este ejemplo se prepara para correr el scritp por ejemplo JQuery una forma es usar el tag <script>
+	con ejemplo estamos declarando una funci[on $(document).ready(function() con esto nuestra funci[on se ejecuta al momento que
+	el documento (html) es cargado y comienza a ejecutarse
+<script>
+  $(document).ready(function() {});
+</script>
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>#left-well</h4>
+      <div class="well" id="left-well">
+        <button class="btn btn-default target" id="target1">#target1</button>
+        <button class="btn btn-default target" id="target2">#target2</button>
+        <button class="btn btn-default target" id="target3">#target3</button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>#right-well</h4>
+      <div class="well" id="right-well">
+        <button class="btn btn-default target" id="target4">#target4</button>
+        <button class="btn btn-default target" id="target5">#target5</button>
+        <button class="btn btn-default target" id="target6">#target6</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+2.- Apuntar a elementos HTML con selectores usando JQuery
+	todas las declaraciones de JQuery comienzan con "$"
+	Por ejemplo abajo se seleccionan los elementos button y se les hace balancearse, para hacerlo hay que incluir JQuery y la 
+	libreria Animete.css, Jquery va a llamar a Animate.css y ejecutar "bounce"
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+
+3.- Apuntar a elementos HTML su class
+	Para hacerlo  hay que respetar la sintaxis de css para llamar una class hay que poner un "." antes del nombre de [este
+	como se ve en el ejemplo s[olo las div de class well se veran afectadas
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated shake");
+  });
+</script>
+
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+4.- Apunta a elementos HTML usando su id
+	Al igual que los casos de class se tiene que respetar la sintaxis de CSS de colocar "#" antes del nombre de nuestra class
+	en el ejemplo el bot[on 3 del primer grupo de botones desaparece al cargar el documento
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated shake");
+    $("#target3").addClass("animated fadeOut");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+5.- Apuntar a un mismo elemento usando diferentes Selectors de JQUERY	Para hacerlo se usa una combinaci[on de selectores como se hizo en los ejemplos anteriores, en el ejemplo se agregan
+	3 diferentes clases a button target1, pero se hace de 3 maneras diferentes afectando de manera diferente a cada nivel
+	al final s[olo target 1 se ve afectada por un cambio de color
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated");
+    $(".btn").addClass("shake");
+    $("#target1").addClass("btn-primary");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+6.- Remocer clases de elemementos
+	Para hacerlo se usa JQuery removeClass(), que en si hace lo contrario a addClass, se tiene que respetar las mismas reglas
+	de sintaxis y dar el nombre de la clase a eleminar, en el ejemplo se remueve el btn-default de bootstrap
+<script>
+  $(document).ready(function() {
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated shake");
+    $("#target3").addClass("animated fadeOut");
+    $("button").removeClass("btn-default");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+7.- Cambio el CSS de un elemento usando JQUERY	Para hacerlo se usa la sintaxis de target como se ha hecho hasta ahora, y la funci[on css() dentro de ella se tiene que 
+	seguir una sintaxis css("color","red"), es la propiedad de css a cambiar y el valor que se le va a dar, en este caso 
+	se cambia el color de letra de negro a rojo
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color","red");
+
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+8.- Deshabilitar elementos de HTML usando JQuery
+	Para hacerlo se usa la funci[on prop("disabled", true); con esto el elemento que ha sido nuestro blaco queda deshabilitado
+	y no puede usarse m[as en el ejemplo el bot[on target1 queda sin poder usarse cambiando de color a gris su fondo
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+9.- Cambiar el text dentro de un elemento de HTML
+	Para hacerlo se usa la funcion html(), con esta se puede cambiar el texto de un elemento y darle el formato que se quiera
+	por ejemplo en este caso se cambia el texto y se le hace enfasis con las tag <em>
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target4").html("<em>target4</em>")
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+10.- Remover elementos completos de HTML
+	La funci[on remove() s[olo necesita que se especifique que elemento es el que se va a eliminar y entoces este deja de apare-
+	cer en la pantalla, en el ejemplo el button 4 desaparace de la pantalla
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+11.- Usar appendTo para mover elementos
+	Esta func[ion cambia los elemento de html de un lugar otro, por ejemplo mover un boton de la derecha a la izquierda
+	en este caso es lo que sucede
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well")
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+12.- Clonar un elemento
+	 la funci[on clone() crea una copia del elemento y con appendTo() se le indica donde se quiere esa copia dentro del 
+	 documento de HTML
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+13.- Realizar cambios al parent de un elemento
+	Para hacerlo se usa la funci[on parent() y la funci[on que queremos que realice la acci[on, en este caso se cambia el color
+	de fondo del parent de #target1 
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color","blue");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+
+
+
+
