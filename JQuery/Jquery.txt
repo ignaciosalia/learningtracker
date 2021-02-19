@@ -73,7 +73,8 @@ JQuery
 <!--Se usa el mismo HTML del punto 1 -->
 
 
-5.- Apuntar a un mismo elemento usando diferentes Selectors de JQUERY	Para hacerlo se usa una combinaci[on de selectores como se hizo en los ejemplos anteriores, en el ejemplo se agregan
+5.- Apuntar a un mismo elemento usando diferentes Selectors de JQUERY
+	Para hacerlo se usa una combinaci[on de selectores como se hizo en los ejemplos anteriores, en el ejemplo se agregan
 	3 diferentes clases a button target1, pero se hace de 3 maneras diferentes afectando de manera diferente a cada nivel
 	al final s[olo target 1 se ve afectada por un cambio de color
 <script>
@@ -100,7 +101,8 @@ JQuery
 <!--Se usa el mismo HTML del punto 1 -->
 
 
-7.- Cambio el CSS de un elemento usando JQUERY	Para hacerlo se usa la sintaxis de target como se ha hecho hasta ahora, y la funci[on css() dentro de ella se tiene que 
+7.- Cambio el CSS de un elemento usando JQUERY
+	Para hacerlo se usa la sintaxis de target como se ha hecho hasta ahora, y la funci[on css() dentro de ella se tiene que 
 	seguir una sintaxis css("color","red"), es la propiedad de css a cambiar y el valor que se le va a dar, en este caso 
 	se cambia el color de letra de negro a rojo
 <script>
@@ -190,6 +192,84 @@ JQuery
   });
 </script>
 <!--Se usa el mismo HTML del punto 1 -->
+
+14.- Apuntar y modificar el child de un elemento
+	As[i como el parent tambien se pueden alterar los children de un elemento con la funci[on children() esta funci[on combi-
+	nadas con otras funciones nos permite manipular estos children
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color","orange");
+
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+15.- 
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+  
+  $(".target:nth-child(2)").addClass("animated bounce");
+  });
+
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+16.- Modificar los elementes pares e impares anidados de otro elemento
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+    $("#left-well").children().css("color", "green");
+    $(".target:nth-child(2)").addClass("animated bounce");
+    $(".target:even").addClass("animated shake");
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+17.- Modificar todo el Jquery
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+    $("#left-well").children().css("color", "green");
+    $(".target:nth-child(2)").addClass("animated bounce");
+    $(".target:even").addClass("animated shake");
+    $("body").addClass("animated hinge"); //tira todo el body de la pantalla (no en serio) literal
+  });
+</script>
+<!--Se usa el mismo HTML del punto 1 -->
+
+
+
+
+
+
 
 
 
