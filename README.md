@@ -30,3 +30,7 @@ In the last months I have been learning the basics of web developing and android
 17 -02 -2021
 This week I finish the freecodecamp Javascript and Data Structures I feel greate and this is very important step for me and I feel more confident in my work and my hability to work and dedicate time to learn and build new proyects, right now I'm working in front end Libraries.
 So let's continue working and continue improving my coding :P
+
+## I have notice some update us necesary
+19-02-2021
+Working with JQuery and trying some of the things I learned in freecodecademy I have notice that I need to practice more outside frecodecademy so I can experiment the changes that has happend with JQuery, animate.css and SASS so I can actually be working with industry standards
