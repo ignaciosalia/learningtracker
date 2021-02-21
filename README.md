@@ -24,6 +24,8 @@ In the last months I have been learning the basics of web developing and android
 |**Git**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**Kotlin**|:heavy_check_mark:| |:heavy_check_mark:|
 |**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
+|**JQuey**|:heavy_check_mark:|
+|**SASS**|:heavy_check_mark:|
 
 
 ## Update of learning progress
@@ -34,3 +36,7 @@ So let's continue working and continue improving my coding :P
 ## I have notice some update us necesary
 19-02-2021
 Working with JQuery and trying some of the things I learned in freecodecademy I have notice that I need to practice more outside frecodecademy so I can experiment the changes that has happend with JQuery, animate.css and SASS so I can actually be working with industry standards
+
+## SASS And the case I have to learnd more
+20-02-2021
+Today I finish frecodecamp SASS introduction an I think I need to practice more with it so I can see how usefull it is, by the moment I don't know how I'm gonna work with it or in what cases I'm gonna use it, feels like for the moment kind of "meh" 
