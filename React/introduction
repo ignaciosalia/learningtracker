@@ -1,0 +1,38 @@
+Introduction to React
+(still not shure about this part of freecodecamp I think need some updating)
+
+What is?
+Is a JavaScript library for building user interfaces, that are resusable and component-driven.
+
+How it works?
+Combining HTML and JAvascript in ist own mark up language calle JSX, Reacto also simplify the flow of data throughout the application
+
+
+1.- Para usar React y JSX es necesario convertir su codigo a codigo JavaScript valido usando alguna herramienta como BABEL (un 
+transpiler) para estos ejemplos las aplicaciones est[an llamando ReactDOM.render(JSX, document.getElementById('root'))
+	Agregar elementos usando JSX:
+const JSX = <h1>Hello JSX!</h1>; Agrega un titulo de peso H1
+
+2.- Crear elementos complejos JSX
+	Para hacer esto se usa anidaci[on, pero con la regla que estos elementos s[olo deben regresar un valor, para hacerlo
+	se tiene un s[olo padre del que todos los dem[as elementos son parte, por ejemplo todos los elementos debe un blog
+	deben pertencer dentro de un <div>
+const JSX = <div>
+    <h1></h1>
+    <p></p>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div> //crea una lista no ordenanda anidada dentro de un <div>
+
+3.- Agregar comentarios a JSX
+	para hacerlo la sintaxis es la siguiente {/*tu comentario*/}, este puede o no estar anidado en el elemento parent
+const JSX = (
+  <div>
+  {/*yo mama*/}
+    <h1>This is a block of JSX</h1>
+    <p>Here's a subtitle</p>
+  </div>
+);//la sintaxis con parentesis y ";" es opcional pero se considera buena practica
