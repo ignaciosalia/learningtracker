@@ -26,6 +26,7 @@ In the last months I have been learning the basics of web developing and android
 |**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
 |**JQuey**|:heavy_check_mark:|
 |**SASS**|:heavy_check_mark:|
+|**React**|
 
 
 ## Update of learning progress
@@ -40,3 +41,9 @@ Working with JQuery and trying some of the things I learned in freecodecademy I 
 ## SASS And the case I have to learnd more
 20-02-2021
 Today I finish frecodecamp SASS introduction an I think I need to practice more with it so I can see how usefull it is, by the moment I don't know how I'm gonna work with it or in what cases I'm gonna use it, feels like for the moment kind of "meh" 
+
+
+## React
+21-02-2021
+Starting to learn React I'm excited about this library
+SASS I found to make it work in real life outside tutorial some configuration is require, the happends with JQuery I have already start playing with this and is fun 
