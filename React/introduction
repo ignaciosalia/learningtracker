@@ -36,3 +36,202 @@ const JSX = (
     <p>Here's a subtitle</p>
   </div>
 );//la sintaxis con parentesis y ";" es opcional pero se considera buena practica
+
+
+4.- Render elements to the DOM
+	Lo que en escencia hace es presentar un elemento JSX definido con anterioridad se usa ReactDOM, que permite cargar de manera
+	directa elementos de REACT a dom siguiendo la sintaxis del ejemplo
+const JSX = (
+  <div>
+    <h1>Hello World</h1>
+    <p>Lets render this to the DOM</p>
+  </div>
+);
+// Change code below this line
+ReactDOM.render(JSX, document.getElementById("challenge-node"));
+
+
+
+5.- Definir una clase en JSX 
+	Es importante dado que class en una palabra reservada en JavaScript y es por esto que es necesario escribirlo como 
+	className, esto afecta a toda la sintaxis de HTML por ejemplo onclick se transforma en onClick respetando camelCase usado
+	en javaScript
+const JSX = (
+  <div className="myDiv">
+    <h1>Add a class to this div</h1>
+  </div>
+);
+
+6.- Tag que se autocierran
+	En HTML existen clases que se cierran solas como <br> o <hr> pero en React o existen o cambian por ejemplo  a <br/> y <hr/>
+	en otros casos esto se puede usar en otras tags como <div/> que servir[ia para dibujar alg[un elemento despue[s
+const JSX = (
+  <div>
+    <h2>Welcome to React!</h2> <br />
+    <p>Be sure to close all tags!</p>
+    <hr />
+  </div>
+);
+
+7.- Crear  componentes de funciones sin estado 
+	Se crea una funcion de React que permite manejar funciones sin estado que regresan elementos de HTML en ejemplo se ve cual
+	es la sintaxis y como usar el return 
+const MyComponent = function() {
+  // Change code below this line
+  return(
+    <div>
+      <p>Death is the best band in the world</p>
+    </div>
+  );
+  // Change code above this line
+}
+
+8.- Crear un componente de React
+	La manera de hacerlo es usando la sintaxis de clases de ES6 en este caso la clase que se define extiende a React.Component()
+	para poder presentar los elementos que se defienen
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    // Change code below this line
+  return(
+    <div>
+      <h1>Hello React!</h1>
+    </div>
+  );
+    // Change code above this line
+  }
+};
+
+9.- Crear un componente usando Composition
+	si se tiene la situaci[on donde se necesita o se tienen definidos multiplec componentes de una app se tiene que anidar todos
+	en un padre que los organice y los muestre para hacerlo llamamos el nombre la funci[on del componente como un una tag
+	personalizada de HTML usando la sintaxis <mi componente/>
+const ChildComponent = () => {
+  return (
+    <div>
+      <p>I am the child</p>
+    </div>
+  );
+};
+
+class ParentComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>I am the parent</h1>
+        { /* Change code below this line */ }
+          <ChildComponent/>
+
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+10.- Presentar componentes anidados
+	Se usa la sitnaxis pasada para realizar anidaci[on de vario elementos de nuestra app
+const TypesOfFruit = () => {
+  return (
+    <div>
+      <h2>Fruits:</h2>
+      <ul>
+        <li>Apples</li>
+        <li>Blueberries</li>
+        <li>Strawberries</li>
+        <li>Bananas</li>
+      </ul>
+    </div>
+  );
+};
+
+const Fruits = () => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+        <TypesOfFruit/>
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        { /* Change code below this line */ }
+          <Fruits/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+11.- Componentes compuesto React
+	Las clases definidas usando la sintaxis ES6 se puede llamar como en el ejemplo anterior usando <miFuncion/>  ser presentada
+class Fruits extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h2>Fruits:</h2>
+        { /* Change code below this line */ }
+          <NonCitrus/>
+          <Citrus/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+class TypesOfFood extends React.Component {
+  constructor(props) {
+     super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        { /* Change code below this line */ }
+        <Fruits/>
+        { /* Change code above this line */ }
+        <Vegetables />
+      </div>
+    );
+  }
+};
+
+12.- Presentar una clase de componente en DOM
+	 usa la sintaxis pasada si es que hay anidaci[on y ReactDom.render, explicado en el punto 5 para presentarlo en DOM, la 
+	sintaxis de la clase cambia por su definici[ion como ES6 y se tiene usar  la sintaxis <miClase/>
+class TypesOfFood extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Types of Food:</h1>
+        {/* Change code below this line */}
+        <Fruits/>
+        <Vegetables/>
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+};
+
+// Change code below this line
+ReactDOM.render(<TypesOfFood/>, document.getElementById("challenge-node"));
+
