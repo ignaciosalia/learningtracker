@@ -47,3 +47,6 @@ Today I finish frecodecamp SASS introduction an I think I need to practice more 
 21-02-2021
 Starting to learn React I'm excited about this library
 SASS I found to make it work in real life outside tutorial some configuration is require, the happends with JQuery I have already start playing with this and is fun 
+
+23-02-2021
+I have decide to build my new portfolio using React, I think is the best way to do it and practice this new tool, I hope by Sunday have some work done 
