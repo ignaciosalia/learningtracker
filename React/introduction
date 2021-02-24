@@ -235,3 +235,188 @@ class TypesOfFood extends React.Component {
 // Change code below this line
 ReactDOM.render(<TypesOfFood/>, document.getElementById("challenge-node"));
 
+13.- Mi primer componente
+class MyComponent extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            <div>
+                <h1>My First React Component!</h1>
+            </div>
+        );
+    }
+}
+ReactDOM.render(<MyComponent/>, document.getElementById("challenge-node"));
+
+
+14.- Pasar props a funciones stateless
+	En el ejemplo se presenta informaci[on de un componente parent de un child con informaci[on de un tercero, para hacerlo
+	se define la fucn[on va a necesitar un elemento como parametro, se hace desde el parent que se pasa la funci[[on con la
+	info y el parametro el child da forma a esta informaci[on y el parente la presenta
+const CurrentDate = (props) => {
+  return (
+    <div>
+      { /* Change code below this line */ }
+      <p>The current date is: {props.date} </p>
+
+      
+      { /* Change code above this line */ }
+    </div>
+  );
+};
+
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>What date is it?</h3>
+        { /* Change code below this line */ }
+        <CurrentDate date={Date()} />
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+
+15.- Pasar un arreglo
+	Para pasar arreglos como props estos se deben pasar siguiendo la sintaxis de JS usando {}, los metodos de los arreglos
+	que existen en JavaScript est[an tambien disponibles en React 
+const List = (props) => {
+  { /* Change code below this line */ }
+  return <p>{props.task.join(" ,")}</p>//se procesa la informaci[on se le da formato
+  { /* Change code above this line */ }
+};
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        { /* Change code below this line */ }
+        <List task={["walk","dog","workout"]}/>//se pasa la informaci[on de manera cruda
+        <h2>Tomorrow</h2>
+        <List task={["Jomati","catalogo","Mercado","Libre"]}/>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+16.- Asignar un valor Default a un prop
+	Se puede establecer un valor default a una prop haciendo las veces de un valor el cual usar si no se pasa ning[[un valor
+	este es el que se va como el valor de props, el metodo que se usa es defaultProps()
+const ShoppingCart = (props) => {
+  
+  return (
+    <div>
+      <h1>Shopping Cart Component</h1>
+    </div>
+  )
+};
+// Change code below this line
+ShoppingCart.defaultProps ={
+    items: 0
+  }
+
+
+17.- SobreEscribir un valor default
+	Para hacerlo en el parent se asigna el valor de manera normal, claro respetar el tipo de valor que se pasa en el ejemplo 
+	es un integro y se pasa sin comillas
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component { //valor default
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Change code below this line */ }
+    return <Items quantity={10}/>        //se sobreescribe el valor default y se muestra el nuevo valor
+    { /* Change code above this line */ }
+  }
+};
+
+
+18.- Usar prototipos para definir props que se esperan
+	Se usa propTypes del mismo modo se usa defaultProps(), la sintaxis es MyComponent.propTypes = { handleClick: PropTypes.func.isRequired }
+	dentro del PropTypes se define el tipo de valor que se espera, https://reactjs.org/docs/typechecking-with-proptypes.html
+	en la documentacion aparacer cuales son esto valores, al finalizar el tipo de valor o condici[on que se espera se tiene 
+	que usar .isRequierd 
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Change code below this line
+Items.propTypes = {
+  quantity: PropTypes.number.isRequired //es este el ejemplo para un tipo de valor number
+}
+// Change code above this line
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+
+
+
+19.- Accesar props usando this.props
+	se usa la sintaxis dentro del child {this.props.nombreDeValor}	con esto se gana la misma funcionalidad que usando la sintaxis
+	que se ha usado hasta ahora
+class ReturnTempPassword extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            { /* Change code below this line */ }
+            <p>Your temporary password is: <strong>{this.props.tempPassword}</strong></p>//se usa la sintaxis this para invocar el props
+            { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
+class ResetPassword extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          <h2>Reset Password</h2>
+          <h3>We've generated a new temporary password for you.</h3>
+          <h3>Please reset this password from your account settings ASAP.</h3>
+          { /* Change code below this line */ }
+<ResetPassword tempPassword={"YoMamaDanceRegueton"}/> //se define props de manera normal en el parent
+          { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
