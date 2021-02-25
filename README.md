@@ -50,3 +50,6 @@ SASS I found to make it work in real life outside tutorial some configuration is
 
 23-02-2021
 I have decide to build my new portfolio using React, I think is the best way to do it and practice this new tool, I hope by Sunday have some work done 
+
+25-02-2021
+I work in something else than my programming I start late and I didn't update my github yesterday, my bad I will continue working and not allowing again to pass a day without updating
