@@ -420,3 +420,163 @@ class ResetPassword extends React.Component {
   }
 };
 
+20.- Resumen de uso de Prop con componentes funcionales sin estado
+	Los componentes sin estado o stateless function es una companente que se comporta como una funci[on, en el caso de un
+	staless functional component de React estos componente sin estado son todas las funciones que reciben un prop y regresan un JSX,
+	A diferencia de un staless component es un componente que extiende React.Component, pero no tiene un estado interno.
+	Un componente statfull component es un componente que s[i mantiene un estado de manera interna.
+	Un patron es el de minimizar el uso de componentes con estado y maximizar el uso de componente sin estado, esto hace m[as
+	sencillo seguir el estado de la aplicaci[on mantenerla y saber que est[a pasando
+class CampSite extends React.Component { //componente que muestra camper
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/> //no muestra nada hasta que se le da algo que mostrar desde camper
+      </div>
+    );
+  }
+};
+// Change code below this line
+const Camper = props =>  <p>{props.name}</p>;//se define Camper con su props como name
+	
+Camper.defaultProps ={ // se define camper y su default prop, como CamperBot
+  name: 'CamperBot'
+};
+Camper.propTypes = {
+  name: PropTypes.string.isRequired//se asigna que tiene que ser un porptype de tipo String y es requerido que se cumpla
+}
+
+
+21.- Crear un componente con estado 
+	Stateful Component
+	Un estado es cualquier informaci[on que la aplicaci[on necesite saber y que pueda cambiar con el tiempo, se quiere que las
+	aplicaciones reaccionen a cambios de para poder actualizar la UI 
+	Para hacerlo se declara un estado dentro del constructor del componente usando la siguiente informaci[on
+	thi.state = { //se describe el estado}
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // Only change code below this line
+    this.state= {
+      name: 'The Only and Original Nacho Man Salia'
+    }
+    // Only change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
+
+22.- Render un estado a UI
+	Lo importante de los estados es que son locales a cada componente, otros componentes no pueden ver que hacen o que son,
+	se tiene que tener cuidado con esto dado que otros componentes no conocen el estado, los estados son accesibles al 
+	render del componente y tiene la sintaxis <h1>{this.state.name}</h1>
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */ }
+          <h1>{this.state.name}</h1>
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+23.- Otra forma de render estado en UI
+	Se puede usar la informacion del estado antes de que se use en el return de render del componeten, realizar cualquier 
+	acci[on o calculo que haga falta almacenarla en una variable y desp[ues presentar la informaci[on 
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    // Change code below this line
+  const name = this.state.name; //variable con la informacion de state, con esta se puede cambiar o hacer lo que se quiera con ella
+
+    // Change code above this line
+    return (
+      <div>
+        { /* Change code below this line */ }
+          <h1>{name}</h1> //se presenta la variable que se definio antes de return
+        { /* Change code above this line */ }
+      </div>
+    );
+  }
+};
+
+
+24.- Establecer un estado usando setState
+	La funci[on setState responde a una accion por ejemplo a que se presione un boton, dentro de ella se puede y se cambia el
+	valor del estado siguiendo la sintaxis de props y variable que se ha visto {name: "React"}
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    // Change code below this line
+  this.setState({name: "React Rocks!"})
+    // Change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
+25.- Bind para this a un metodo de la clase
+	this se refiere en este contexto al companente, pero para que un metodo use this tenemos que ligarlo (bind) a ese metodo
+	this.handleClick = this.handleClick.bind(this), se establece que this.handleClick se acciona sobre this estan ligados
+	en el ejemplo con dar un click
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "Hello"
+    };
+    // Change code below this line
+  this.handleClick = this.handleClick.bind(this)//se liga this con la accion del componente handleClick
+    // Change code above this line
+  }
+  handleClick() {
+    this.setState({
+      text: "You clicked!"
+    });
+  }
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */ }
+        <button onClick={this.handleClick}>Click Me</button>//se liga la accion del boton con this.handleClick
+        { /* Change code above this line */ }
+        <h1>{this.state.text}</h1>
+      </div>
+    );
+  }
+};
+
