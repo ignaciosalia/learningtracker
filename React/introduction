@@ -580,3 +580,272 @@ class MyComponent extends React.Component {
   }
 };
 
+26.- Usar estado de Toggle un element
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false
+    };
+    // Change code below this line
+    this.toggleVisibility = this.toggleVisibility.bind(this); //dentro del constructor se define a que funciona se liga this
+    // Change code above this line
+  }
+  // Change code below this line
+    toggleVisibility(){           //saliendo del construct, se define esta funcion y que hace la logica es similar a javascript
+      this.setState(state => {    //pero se tiene que respetar el manejo de las variables con {} para hacer el return 
+        if(state.visibility === true){
+          return { visibility: false}
+        } else {
+          return {visibility: true}
+        }
+      });
+    }
+
+  // Change code above this line
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+}
+
+
+27.- Hacer bind de estado a varias funciones
+	En el ejemplo se extiendo lo que se ha hecho en los ejemplo anteriores y se muestra que this se puede casar con varias
+	funciones y hacer cambios a la que aparece en la pantalla
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    // Change code below this line
+  this.increment = this.increment.bind(this);
+  this.decrement = this.decrement.bind(this);
+  this.reset = this.reset.bind(this);
+    // Change code above this line
+  }
+  // Change code below this line
+  increment(){
+    this.setState(state => ({
+      count: state.count + 1
+    }));
+  }
+  decrement(){
+    this.setState(state => ({
+      count: state.count - 1
+    }))
+  }
+  reset(){
+    this.setState(state => ({
+      count: state.count = 0
+    }))
+  }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+};
+
+
+28.- Ejemplo de cambio de UI al momento de que pasa
+	en este caso se crea una funci[on que liga uno a uno la entrada de datos a la actualizaci[on del UI
+class ControlledInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    // Change code below this line
+    this.handleChange = this.handleChange.bind(this)
+    // Change code above this line
+  }
+  // Change code below this line
+  handleChange(event){
+    this.setState({
+      input: event.target.value
+    })
+  }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */}
+      <input value = {this.state.input} onChange = {this.handleChange}/>
+        { /* Change code above this line */}
+        <h4>Controlled Input:</h4>
+        <p>{this.state.input}</p>
+      </div>
+    );
+  }
+};
+
+
+29.- Crear una forma controlada
+	?Que significa esto? significa que se usa un state para almacenar informaci[on y adem[as de eso agregar esa informaci[on 
+	en otro state y presentar la informaci[on, 
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '', //almacena la variabale el cambio del input que maneja el boton
+      submit: '' //este valor recibe el valor de input y lo agrega en el h1
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
+  handleSubmit(event) {
+    // Change code below this line
+    event.preventDefault() //evitar el valor default se guarde sobre el input
+      this.setState({
+        submit: this.state.input //este valor es el que actualiza la boton
+      })
+    
+    // Change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          {/* Change code below this line */}
+            <input 
+              value = {this.state.input}
+              onChange = {this.handleChange} //al presionar el boton se guarda el valor del input y se actualiza la variable
+            />  			     //de submit
+          {/* Change code above this line */}
+          <button type='submit'>Submit!</button>
+        </form>
+        {/* Change code below this line */}
+            <h1>{this.state.submit}</h1>
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+}
+
+
+30.- Pasar un state a un componente child
+	Se tiene que definir dentro del parente <Child/> despu[es pasar el estado como prop <Child {this.state.name}/> para pasar
+	estado se tiene que usa la palabra this
+	Del lado del child se tiene que usar la sintaxis <h1>This is a parent state : {this.props.name}</h1> donde this hace refe-
+	rencia al child donde props ahora tiene el valor del state del parent
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'CamperBot'
+    }
+  }
+  render() {
+    return (
+       <div>
+         {/* Change code below this line */}
+         <Navbar name={this.state.name} />
+         {/* Change code above this line */}
+       </div>
+    );
+  }
+};
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+    <div>
+      {/* Change code below this line */}
+      <h1>Hello, my name is: {this.props.name} </h1>
+      {/* Change code above this line */}
+    </div>
+    );
+  }
+};
+
+31.- Pasar un Callback (funcion) como prop
+	En este ejemplo se pasa un state a un child y una funcion, el resultado de la funci[on regresa al parent que contiene 
+	el metodo que realiza la acci[on, este nuevo estado pasa a un segundo child que presenta la informaci[on trabajada
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+        { /* Change code below this line */ }
+        <GetInput 
+        input={this.state.inputValue} //state original
+	handleChange={this.handleChange}/>//metodo que cambia el state
+        <RenderInput 
+        input={this.state.inputValue}/>//resultado del state despues de pasar por el metodo
+        { /* Change code above this line */ }
+       </div>
+    );
+  }
+};
+
+class GetInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Get Input:</h3>
+        <input
+          value={this.props.input} //input del state
+          onChange={this.props.handleChange}/>//metodo casado con el state que presenta la informacion
+      </div>
+    );
+  }
+};
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p> //presenta el resultado del metodo handleChange()
+      </div>
+    );
+  }
+};
+
+
