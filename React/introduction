@@ -848,4 +848,20 @@ class RenderInput extends React.Component {
   }
 };
 
+32.- componentWillMount
+	En este caso est[a funci[on es usanda antes del render() para poder dejar claro, o presentar algo en la consola por ejemplo otros metodos son componentDidMount() shouldComponentUpdate() componentDidUpdate() componentWillUnmount()
+	estos componentes son usados en diferentes momentos del lifycycle
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillMount() {
+    // Change code below this line
+    console.log("yo mama")
+    // Change code above this line
+  }
+  render() {
+    return <div />
+  }
+};
 
