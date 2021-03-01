@@ -56,3 +56,6 @@ I work in something else than my programming I start late and I didn't update my
 
 27-02-2021
 This two days have been full of family challenges but I have find time at the end of the day to work and continue studying React in freecodecademy, also today I read that there is a React Native game engine so I'm looking foward to that will I continue learning the basics of React, to then step to React Native and Write a Game
+
+# 28-02-2021
+This have been a couple of days full with family issues but I feel things are changing and improving, this week I'm sure I could finish the freecodecamp React section this week :)
