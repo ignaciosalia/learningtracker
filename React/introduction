@@ -865,3 +865,172 @@ class MyComponent extends React.Component {
   }
 };
 
+33.- Metodo componentDidMount()
+	Este metodo vive antes de render(), es usado en los caso que se hace un llamado a un API de servidor externo dado que su
+	funci[on es actualizar informaic[on, cual quier llamado a setState() en este metodo va a disparar una recarga del render
+	con la informaci[on que se obtiene
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeUsers: null
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => { //esta funcii[on actualiza el valor de active users
+      this.setState({
+        activeUsers: 1473
+      });
+    }, 3500); //tiene una espera de 3500 milisegundos para hacerlo
+  }
+  render() {
+    return (  
+      <div>
+        {/* Change code below this line */}
+        <h1>Active Users: {this.state.activeUsers} </h1> //cuando el cambio se alcanza se presenta el nuevo valor del state acutal
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+}
+
+34.- Agregar monitor de Eventos
+	usando componentDidMount y componentWillMount se tiene que se puede agregar estos "monitores" listeners ha diferentes 
+	momentos del lifecylce desde que ya se monto a la promesa que lo va hacer
+	En el ejemplo se hace un listener a la funci[on handleKeyPress() en ella se tiene un par de condiciones que cambian el valor
+	message dentro del state, handleEnter lo que hace es manejar cuando se presiona Enter, como juego agrege una condici[on que
+	maneja cuando se presiona la letra b
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: ''
+    };
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  // Change code below this line
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress)
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown",this.handleKeyPress)
+  }
+  // Change code above this line
+  handleEnter() {
+    this.setState((state) => ({
+      message: state.message + 'You pressed the enter key! '
+    }));
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 13) {
+      this.handleEnter();
+    }else if(event.keyCode === 66){
+      this.setState((state) =>({
+        message: state.message + "this is a b"
+      }));
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    );
+  }
+};
+
+
+35.- Metodo shouldComponentUpdate()
+	Es un metodo para verificar si se debe o no re-render la pantalla toma 2 parametros uno nextProps y nectState, el comporta-
+	miento default es que se actualice o se re-render cada vez que se se recive un nuevo props su valor halla cambiado o no
+	para hacerlo recive 2 parametros nextProps, el nuevo props y nextState el nuevo state con esto se puede jugar y crear 
+	cosas muy interesantes por ejemplo, en el ejemplo s[olo se re-render cuando props es diferente de nextProps y el valor
+	de nextProps es par
+	
+class OnlyEvens extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Should I update?');
+    // Change code below this line
+    if(this.props != nextProps && (nextProps.value % 2) === 0){ //si se cumple la condici[on se regresa true lo que permite que
+								//react re-render la pantalla de lo contrario nada cambia
+      console.log(nextProps.value)
+      
+      return true;
+    }
+    // Change code above this line
+  }
+  componentDidUpdate() {
+    console.log('Component re-rendered.');
+  }
+  render() {
+    return <h1>{this.props.value}</h1>;
+  }
+}
+
+class Controller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+    this.addValue = this.addValue.bind(this);
+  }
+  addValue() {
+    this.setState(state => ({
+      value: state.value + 1
+    }));
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.addValue}>Add</button>
+        <OnlyEvens value={this.state.value} />
+      </div>
+    );
+  }
+}
+
+36.- Introducci[on a estilos en linea
+     Inline Styles
+	Se puede usar e importar los estilos desde un stylesheet como com[unmente se hace en un documento de HTML pero si es necesario
+	o es practica com[un en React los estilos se pueden aplicar en la linea que se declaran 
+	Se tiene que tener mucho cuidado con la nueva sintaxis style={{color:"red", fontSize:"72px"}} doble {} y uso de camelCase
+	para las propiedades de CSS que sean de dos o m[as palabras, los valores de las propiedades se tiene que pasar como strings
+class Colorful extends React.Component {
+  render() {
+    return (
+      <div style={{color:"red", fontSize:"72px"}}>Big Red</div>
+    );
+  }
+};
+
+
+37.- M[as cambios en los estilos inline
+	Todos los valores de height, width o fontSize (correcta sintaxis) se asumen en px, todos los valores se deden especificar y
+	adem[as de eso se tiene que especificar por ejemplo {fontSize: "40em"}
+	Junto a esto se gana la capacidad de manajer los estilos como constantes como se ve en el ejemplo est[as contastes se 
+	declaran fuera de las funciones y se puede asignar al style del elemento dentro de render()
+ // Change code above this line
+  const styles ={
+    color: "purple",
+    fontSize: "40",
+    border: "2px solid purple"
+  }
+class Colorful extends React.Component {
+  render() {
+    // Change code below this line
+    return (
+      
+      <div style={styles}>Style Me!</div>
+    );
+    // Change code above this line
+  }
+};
+
+
+
+
