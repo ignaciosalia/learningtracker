@@ -1032,5 +1032,153 @@ class Colorful extends React.Component {
 };
 
 
+38.- Usar JavaScript avanzado en m[etodo Render
+	Para hacerlo se puede implementar javascript directo de el metodo render, en el ejemplo se imita el juguete de la bola
+	8 de predicciones, dentro de render se tiene un arreglo que contiene una serie de posibles respuestas, dentro de 
+	render se declara una nueva variable answer que es igual a una de estas repuestas, pero se selecciona al azar ccon el
+	m[etodo ask, que es llamdao cuando se presiona el boton al hacerlo se valida si es que se ingreso algo en el input, de ser
+	as[i llama a y dentro de este metodo se usar Math.random() *20 y genera un numero entero aleatorio que se usa para el
+	index de possibleAnswer
+const inputStyle = {
+  width: 235,
+  margin: 5
+};
+
+class MagicEightBall extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInput: '',
+      randomIndex: ''
+    };
+    this.ask = this.ask.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  ask() {
+    if (this.state.userInput) {
+      this.setState({
+        randomIndex: Math.floor(Math.random() * 20),
+        userInput: ''
+      });
+    }
+  }
+  handleChange(event) {
+    this.setState({
+      userInput: event.target.value
+    });
+  }
+  render() {
+    const possibleAnswers = [
+      'It is certain',
+      'It is decidedly so',
+      'Without a doubt',
+      'Yes, definitely',
+      'You may rely on it',
+      'As I see it, yes',
+      'Outlook good',
+      'Yes',
+      'Signs point to yes',
+      'Reply hazy try again',
+      'Ask again later',
+      'Better not tell you now',
+      'Cannot predict now',
+      'Concentrate and ask again',
+      "Don't count on it",
+      'My reply is no',
+      'My sources say no',
+      'Most likely',
+      'Outlook not so good',
+      'Very doubtful'
+    ];
+    const answer = possibleAnswers[this.state.randomIndex]; // Change this line
+    return (
+      <div>
+        <input
+          type='text'
+          value={this.state.userInput}
+          onChange={this.handleChange}
+          style={inputStyle}
+        />
+        <br />
+        <button onClick={this.ask}>Ask the Magic Eight Ball!</button>
+        <br />
+        <h3>Answer:</h3>
+        <p>
+          {/* Change code below this line */}
+          {answer}
+          {/* Change code above this line */}
+        </p>
+      </div>
+    );
+  }
+}
+
+
+39.- Render con If else condition
+	Se usa como un if else normal mientras que se use afuera de un elemento HTML de render como en el ejemplo
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true
+    }
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState((state) => ({
+      display: !state.display
+    }));
+  }
+  render() {
+    // Change code below this line
+  if(this.state.display){
+       return (
+       <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+           <h1>Displayed!</h1>
+         
+       </div>
+    );
+  } else {
+    return(
+                 <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+         </div>
+    )
+
+  }
+ 
+  }
+};
+
+
+40.- Usar && como condicion
+	Es una condición que usa la sintaxis de {} para llamar funciones de javascript dentro de un elemento de HTML, en este caso
+	se tiene que se usa una condici[on como esta {this.state.evaluar && <h1>Me veo o no</h1>} el && hace las veces de if
+	En este caso y evalua y si se cumple entonces se presenta el elemento html de otro modo no lo hace
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true
+    }
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState(state => ({
+      display: !state.display
+    }));
+  }
+  render() {
+    // Change code below this line
+    return (
+       <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+         {this.state.display && <h1>Displayed!</h1>}
+         {!this.state.display && <h1>¡A Chinga se fue!</h1>}
+       </div>
+    );
+  }
+};
 
 
