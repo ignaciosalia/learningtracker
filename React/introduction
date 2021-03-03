@@ -1181,4 +1181,225 @@ class MyComponent extends React.Component {
   }
 };
 
+41.- Usar expresion ternario ? : ;
+	Es la condici[on ya usada en javascript condicion ? condicionVerdadera : condicionFalsa; es otra manera de usar condicion
+	dentro de un elemento de html en render, se debe usar la sintaxis {javascript code dentro de render}
+const inputStyle = {
+  width: 235,
+  margin: 5
+};
+
+class CheckUserAge extends React.Component {
+  constructor(props) {
+    super(props);
+    // Change code below this line
+    this.state = {
+      userAge: '',
+      input: ''
+    }
+    // Change code above this line
+    this.submit = this.submit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({
+      input: e.target.value,
+      userAge: ''
+    });
+  }
+  submit() {
+    this.setState(state => ({
+      userAge: state.input
+    }));
+  }
+  render() {
+    const buttonOne = <button onClick={this.submit}>Submit</button>;
+    const buttonTwo = <button>You May Enter</button>;
+    const buttonThree = <button>You Shall Not Pass</button>;
+    return (
+      <div>
+        <h3>Enter Your Age to Continue</h3>
+        <input
+          style={inputStyle}
+          type='number'
+          value={this.state.input}
+          onChange={this.handleChange}
+        />
+        <br />
+        {/* Change code below this line */}
+          {this.state.userAge === '' ?
+            buttonOne : this.state.userAge >= 18
+            ? buttonTwo : buttonThree
+            }
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+}
+
+
+42.- Render de manera condicional de Props
+	Pequeño juego de lanzar la moneda, tiene un numero random entre 0 y 1 que si es mayor a 0.5 se gana de lo contrario se 
+	pierde, además de esto tiene un contador de cuantas veces se ha jugado 
+class Results extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    {/* Change code below this line */}
+    const win = <h1>You Win!</h1>;
+    const lose =<h1>You Lose!</h1>
+    const maybe = this.props.fiftyFifty
+    return (
+      <div>
+      {maybe >= 0.5 ? win :
+      lose}
+      </div>
+    )    
+    {/* Change code above this line */}
+  }
+}
+
+class GameOfChance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      counter:  this.state.counter + 1// Change this line
+    });
+  }
+  render() {
+    const expression = null; // Change this line
+    return (
+      <div>
+        <button onClick={this.handleClick}>Play Again</button>
+        {/* Change code below this line */}
+          <Results fiftyFifty={Math.random(1) }/>
+        {/* Change code above this line */}
+        <p>{'Turn: ' + this.state.counter}</p>
+      </div>
+    );
+  }
+}
+
+42.- Cambiar inline style segun el stado
+	Para hacerlo es necesario definir como let la variable que va a contener el estilo, para despu[es hacer el cambio bajo 
+	una condici[on ligada al state, en este caso el state est[a ligado a una string que tiene que ser menor a 15 caracteres
+	de lo contrario se tiene que el style tiene que volverse rojo y grueso
+class GateKeeper extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ input: event.target.value })
+  }
+  render() {
+    let inputStyle = {
+      border: '1px solid black'
+    };
+    // Change code below this line
+    this.state.input.length < 15 ?
+     inputStyle :
+     inputStyle = {
+       border: "3px solid red"
+     }
+    // Change code above this line
+    return (
+      <div>
+        <h3>Don't Type Too Much:</h3>
+        <input
+          type="text"
+          style={inputStyle}
+          value={this.state.input}
+          onChange={this.handleChange} />
+      </div>
+    );
+  }
+};
+
+
+43.- Usar Arra.map para render elementos de manera dinamica
+	Para hacer el ejemplo se declara un state que contiene una variable input de string vacia y un arreglo vacio, dos funciones
+	una que al precionar el boton create list separa los elementos del todo list en miembros de un arreglo y otra que maneja
+	el cambio 
+const textAreaStyles = {
+  width: 235,
+  margin: 5
+};
+
+class MyToDoList extends React.Component {
+  constructor(props) {
+    super(props);
+    // Change code below this line
+    this.state ={
+      userInput :'',
+      toDoList : []
+    }
+    // Change code above this line
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleSubmit() {
+    const itemsArray = this.state.userInput.split(',');
+    this.setState({
+      toDoList: itemsArray
+    });
+  }
+  handleChange(e) {
+    this.setState({
+      userInput: e.target.value
+    });
+  }
+  render() {
+    const items = this.state.toDoList.map(i => <li>{i}</li>);
+    return (
+      <div>
+        <textarea
+          onChange={this.handleChange}
+          value={this.state.userInput}
+          style={textAreaStyles}
+          placeholder='Separate Items With Commas'
+        />
+        <br />
+        <button onClick={this.handleSubmit}>Create List</button>
+        <h1>My "To Do" List:</h1>
+        <ul>{items}</ul>
+      </div>
+    );
+  }
+} 	
+
+44.- Give Sibling elements a unique  key
+	Para hacerlo se usa la misma funci[on map pero ahora cada elemento se <li key={index}> que del da el valor del index del
+	elemento en el arreglo  
+const frontEndFrameworks = [
+  'React',
+  'Angular',
+  'Ember',
+  'Knockout',
+  'Backbone',
+  'Vue'
+];
+
+function Frameworks() {
+  const renderFrameworks = frontEndFrameworks.map((i, index) => <li key={index}>{i}</li>); // Change this line
+  return (
+    <div>
+      <h1>Popular Front End JavaScript Frameworks</h1>
+      <ul>
+        {renderFrameworks}
+      </ul>
+    </div>
+  );
+};
+
 
