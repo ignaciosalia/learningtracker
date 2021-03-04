@@ -1,0 +1,14 @@
+
+Para correr el servidor local de la app
+	npm start
+	Al hacerlo presenta lo que hemo hecho con la app o lo errores que prensta
+
+Para agregar bibliotecas
+	se tiene en el folder public el archivo index.html es en el que se agregaran estas librerias de css o nuestra stylesheet
+
+Dentro del proyecto para trabajar todo va dentro del component App.js que se crea cuando se crea el proyecto
+	
+
+VS code cambiar lenguage
+	en la parte inferior tiene el lenguage que usa para predecir lo que se escribe si se quiere cambiar se tiene que dar click
+	en el y cambiarlo al que se quiere en este caso a React JavaScript
