@@ -59,3 +59,6 @@ This two days have been full of family challenges but I have find time at the en
 
 # 28-02-2021
 This have been a couple of days full with family issues but I feel things are changing and improving, this week I'm sure I could finish the freecodecamp React section this week :)
+
+# 03-03-2021
+This has been days of a lot of work but I feel I have advance a lot for example I end the React Tic Toc tutorial and getting familiar with the React development tools and what is necesary to make it work, I feel very well and motivated to create my full portfolio using React
