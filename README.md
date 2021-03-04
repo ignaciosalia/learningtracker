@@ -62,3 +62,6 @@ This have been a couple of days full with family issues but I feel things are ch
 
 # 03-03-2021
 This has been days of a lot of work but I feel I have advance a lot for example I end the React Tic Toc tutorial and getting familiar with the React development tools and what is necesary to make it work, I feel very well and motivated to create my full portfolio using React
+
+## Fighting with git in windows
+I can't connect my git to github I continue getting an error to create a new repository but I will kepping working yesterday I finish my first react App I continue improving it an playing with it so I hope solve the git issue in the next days :P
