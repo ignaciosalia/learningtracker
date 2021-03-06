@@ -65,3 +65,6 @@ This has been days of a lot of work but I feel I have advance a lot for example 
 
 ## Fighting with git in windows
 I can't connect my git to github I continue getting an error to create a new repository but I will kepping working yesterday I finish my first react App I continue improving it an playing with it so I hope solve the git issue in the next days :P
+
+## Fighting wit node, npm and react 
+Ughh a long day figthing with node and trying to install it my secundary laptop running ubuntu but still is not running, properly it doesn't create a project or let me  update to the latest version wel I will continue trying and troubleshooting. Also today I realize how much I miss using ubuntu and linux in general 
