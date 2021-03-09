@@ -68,3 +68,6 @@ I can't connect my git to github I continue getting an error to create a new rep
 
 ## Fighting wit node, npm and react 
 Ughh a long day figthing with node and trying to install it my secundary laptop running ubuntu but still is not running, properly it doesn't create a project or let me  update to the latest version wel I will continue trying and troubleshooting. Also today I realize how much I miss using ubuntu and linux in general 
+
+# 08-03-2021
+This week I been working in a new portfolio an searching projecto to work on for the moment I been working in learning to implement react o Github, but I have fail by the moment any way I have found several options to deploy a React for free I hope to try this alternatives by next friday when my new portfolio un React may be complete
