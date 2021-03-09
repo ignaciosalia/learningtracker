@@ -1,0 +1,140 @@
+This is my frist notes learning Redux 
+
+Redux Qu[e es? 
+	es una libreria opensource de JavaScript para manejar los estados de las aplicaciones. Es usada junto con React o Angular para
+	crear interfaces, es parecida en funcionamiento a la arquitectura Flux desarrollada por Facebook
+
+1.- Crear una Redux Store
+	En redux hay un s[olo estado que es responsable por el estado general de la aplicaci[on, esto quiere decir que cada vez 
+	la [unica fuente de verdad dentro de la app, esto quiere decir que cada vez que una app quiere cambiar de estado tiene
+	que hacerlo a traves de Redux Store, esto ayuda a administrar el flujo de la app de manera m[as sencilla
+
+	una redux store es un objeto que maneja el estado de la aplicacion 
+const reducer = (state = 5) => {
+  return state;
+}
+
+// Redux methods are available from a Redux object
+// For example: Redux.createStore()
+// Define the store here
+const store = Redux.createStore(reducer)
+
+2.- Obtener el estado de la Redux store
+	una redux store provee varios metodos para interactuar con el ejemplo getState()
+const store = Redux.createStore(
+  (state = 5) => state
+);
+
+// Change code below this line
+const currentState = store.getState();
+
+3.- Definir una action en Redux
+	Todos los cambios (update) de un estado, un action es un objeto que describe un evento que ha sucedido, por ejemplo un 
+	action puede contener userName despu[es que un usario se haya log in, sin embargo esto no tiene que ser la data como tal
+	s[olo un state
+let action ={
+  type: 'LOGIN'
+};
+
+
+
+4.- Definir un action Creator
+	Despu[es de definir un action, hay que mandarlo al Redux Store, para actualizar el estado, el action Creator es una funci[on
+	de JavaScript que regresa un action, la funcion crea un objeto que representa acciones de eventos
+const action = {
+  type: 'LOGIN'
+}
+// en este ejemplo s[olo se regresa el action como es
+function actionCreator(){
+  return action;
+}
+
+
+5.- dispatch 
+	se usa para pasar action a un Redux store ejemplo store.dispatch() puede pasarse como agumenteo un objeto o un creator
+const store = Redux.createStore(
+  (state = {login: false}) => state
+);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+// dispatch toma el Creator y asigna su state al redux store
+store.dispatch(loginAction());
+
+
+6.- Manejar una action en la store
+	se usa el metodo reducer que se encarga de los cambios en state que se cambia por una action, para hacerlo el reducer tomo
+	un state y un action en el que siempre regresa un nuevo state, el reducer es s[olo read-only en otras palabras el  reducer
+	siempre debe 
+
+const defaultState = {
+  login: false
+};
+
+const reducer = (state = defaultState, action) => {
+  // Change code below this line
+    if(action.type == "LOGIN"){
+      return {
+        login: true
+      };
+    }else {
+      return state;
+    }
+  // Change code above this line
+};
+
+const store = Redux.createStore(reducer);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+7.- Usar Switch para manejar multiples actions
+	en este caso se hace un caso parecido al del caso anterior pero se usa switch para diferentes casos, esto es practica comun
+	en redux
+const defaultState = {
+  authenticated: false
+};
+
+const authReducer = (state = defaultState, action) => {
+  // Change code below this line
+    switch(action.type){
+      case 'LOGIN':
+      return {
+        authenticated : true
+      };
+      break;
+      case 'LOGOUT':
+      return {
+        authenticated : false
+      };
+      break;
+      default: 
+      return defaultState
+    }
+  // Change code above this line
+};
+
+const store = Redux.createStore(authReducer);
+
+const loginUser = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+const logoutUser = () => {
+  return {
+    type: 'LOGOUT'
+  }
+};
+
+
+	
+
