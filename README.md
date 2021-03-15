@@ -71,3 +71,6 @@ Ughh a long day figthing with node and trying to install it my secundary laptop 
 
 # 08-03-2021
 This week I been working in a new portfolio an searching projecto to work on for the moment I been working in learning to implement react o Github, but I have fail by the moment any way I have found several options to deploy a React for free I hope to try this alternatives by next friday when my new portfolio un React may be complete
+# 14-03-2021
+
+Well tuff week but at least I'm still here and learning, but quite slow, I haven't be able to make a greate advance, but well I will continue... 
