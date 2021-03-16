@@ -74,3 +74,6 @@ This week I been working in a new portfolio an searching projecto to work on for
 # 14-03-2021
 
 Well tuff week but at least I'm still here and learning, but quite slow, I haven't be able to make a greate advance, but well I will continue... 
+
+# 15-03-2021
+Today has been a lot of work in home and maintenance, so I'm at the end of the day learning to create a responsive nav-bar for desktop and telephones, I hope tomorrow to test in my portfolio home page, still on the making but looking good :P
