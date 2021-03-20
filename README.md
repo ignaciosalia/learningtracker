@@ -80,3 +80,6 @@ Today has been a lot of work in home and maintenance, so I'm at the end of the d
 
 # 18-03-2021
 Well I get a job offer in a bilingual telemarketing, not the job I want but the one I need, also I'm thinking in start a blog translating what I learn and share it in social media and my github :P
+
+# 19-03-2021
+I'm working and learning more about flexbox and also about in trasnlating some usefull tutorial to practice so I can learnd more and maybe help someone else. That is learning web development in spanish
