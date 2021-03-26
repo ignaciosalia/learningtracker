@@ -26,7 +26,7 @@ In the last months I have been learning the basics of web developing and android
 |**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
 |**JQuey**|:heavy_check_mark:|
 |**SASS**|:heavy_check_mark:|
-|**React**|
+|**React**|:check_mark:|
 
 
 ## Update of learning progress
@@ -83,3 +83,6 @@ Well I get a job offer in a bilingual telemarketing, not the job I want but the 
 
 # 19-03-2021
 I'm working and learning more about flexbox and also about in trasnlating some usefull tutorial to practice so I can learnd more and maybe help someone else. That is learning web development in spanish
+
+# 25-03-2021
+Work, work, work, finally my family issues are improving and getting better, so much that is letting me to get back to work, right know my portfolio is almost done, also I'm recreating this portfolio using react, the idea is to improve my react habilities also I hope to get my front end development libraries certification from freecodecamp :P 
