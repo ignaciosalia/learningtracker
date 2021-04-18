@@ -86,3 +86,8 @@ I'm working and learning more about flexbox and also about in trasnlating some u
 
 # 25-03-2021
 Work, work, work, finally my family issues are improving and getting better, so much that is letting me to get back to work, right know my portfolio is almost done, also I'm recreating this portfolio using react, the idea is to improve my react habilities also I hope to get my front end development libraries certification from freecodecamp :P 
+
+# 17-03-2021
+Well alot has change but still not a job, I had one interview last week tuesday 13 and I blow it horribly, I didn't remember what a pure javascript function is (is function that given the same input it will always return the same result), also I didn't remember what a modular design pattern is and for what is use (is a design pattern that subdivides the parts of a system into smaller parts called modules, each module is easy to maintain and build by individuals, this modules are easier to test then this parts are out together, also this design pattern make agile systems and apps). In my interview also I didn't remember what AJAX is (Asynchronous JavaScript and XML is a set of techniques using many web technologies on the client-side to create asynchronous web applications, as the example of google guess word), and also what a bloody Arrow function is, and really hate my self for it. 
+But I really give me the opportunity of something, to learn and to see I need to study more theory and practice more, create more projects and make everyone who want to test me see of what I'm capable of, to show and all my creativity and abilities. 
+I fail my self for the last time. 
