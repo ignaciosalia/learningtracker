@@ -20,13 +20,14 @@ In the last months I have been learning the basics of web developing and android
 |**Javascript**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**Javascript OOP**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**JSON**|:heavy_check_mark:| |:heavy_check_mark:|
+|**React**|:heavy_check_mark: :heavy_check_mark:|
 |**Github**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**Git**|:heavy_check_mark: :heavy_check_mark:| |:heavy_check_mark:|
 |**Kotlin**|:heavy_check_mark:| |:heavy_check_mark:|
 |**Android Studio**|:heavy_check_mark:| |:heavy_check_mark:|
 |**JQuey**|:heavy_check_mark:|
 |**SASS**|:heavy_check_mark:|
-|**React**|:check_mark:|
+
 
 
 ## Update of learning progress
@@ -91,3 +92,7 @@ Work, work, work, finally my family issues are improving and getting better, so 
 Well alot has change but still not a job, I had one interview last week tuesday 13 and I blow it horribly, I didn't remember what a pure javascript function is (is function that given the same input it will always return the same result), also I didn't remember what a modular design pattern is and for what is use (is a design pattern that subdivides the parts of a system into smaller parts called modules, each module is easy to maintain and build by individuals, this modules are easier to test then this parts are out together, also this design pattern make agile systems and apps). In my interview also I didn't remember what AJAX is (Asynchronous JavaScript and XML is a set of techniques using many web technologies on the client-side to create asynchronous web applications, as the example of google guess word), and also what a bloody Arrow function is, and really hate my self for it. 
 But I really give me the opportunity of something, to learn and to see I need to study more theory and practice more, create more projects and make everyone who want to test me see of what I'm capable of, to show and all my creativity and abilities. 
 I fail my self for the last time. 
+
+
+# 7-06-2021
+As we say in Mexico "Not dead, Only was in a party" well not a party I'm been working a lot in my new portfolio and trying to get a job as a front end developer, well I been reading and learning a lot more in deep React. This is a the path I choose, and I hope soon get a job, and write here very soon that I'm officialy working to improve my skills everyday. 
