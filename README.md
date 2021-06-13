@@ -96,3 +96,6 @@ I fail my self for the last time.
 
 # 7-06-2021
 As we say in Mexico "Not dead, Only was in a party" well not a party I'm been working a lot in my new portfolio and trying to get a job as a front end developer, well I been reading and learning a lot more in deep React. This is a the path I choose, and I hope soon get a job, and write here very soon that I'm officialy working to improve my skills everyday. 
+
+# 13-06-2021
+Work and family are two things that sometimes are in conflict, I don't know how to balance them, I feel sometimes I put family infront of work no matter if doing this will affect my pocket but anyway, I have started to tackle daily JavaScript challenges, and to create a new look to my portfolio instead of try to sell what I think the industry wants I will sell who I'm, and see what happend the worst is I don't get a job :P 
